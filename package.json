@@ -1,0 +1,25 @@
+{
+  "name": "specificator",
+  "description": "It is framework designed to help you writing OpenAPI 3 documentation.",
+  "main": "./build/main.js",
+  "types": "./build/main.d.ts",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/jest": "^23.3.12",
+    "class-validator": "^0.9.1",
+    "jest": "^23.6.0",
+    "ts-jest": "^23.10.5",
+    "tslint": "^5.12.0",
+    "typescript": "^3.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neluzhin/specificator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/neluzhin/specificator/issues"
+  },
+  "homepage": "https://github.com/neluzhin/specificator"
+}

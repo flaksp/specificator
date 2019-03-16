@@ -1,0 +1,46 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended"
+    ],
+    "jsRules": {},
+    "rules": {
+        "max-line-length": [
+            true,
+            {
+                "limit": 120,
+                "ignore-pattern": "^import |^export {(.*?)}|^.+?class |^\\s+?\\*"
+            }
+        ],
+        "member-ordering": [
+            true,
+            {
+                "alphabetize": true,
+                "order": [
+                    "public-constructor",
+                    "protected-constructor",
+                    "private-constructor",
+                    "public-static-field",
+                    "protected-static-field",
+                    "private-static-field",
+                    "public-instance-field",
+                    "protected-instance-field",
+                    "private-instance-field",
+                    "public-static-method",
+                    "protected-static-method",
+                    "private-static-method",
+                    "public-instance-method",
+                    "protected-instance-method",
+                    "private-instance-method"
+                ]
+            }
+        ],
+        "interface-name": [
+            true,
+            "never-prefix"
+        ],
+        "no-empty-interface": false,
+        "no-unused-variable": true
+    },
+    "rulesDirectory": []
+}
