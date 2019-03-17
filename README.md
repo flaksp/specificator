@@ -1,5 +1,7 @@
 `# Specificator
 
+[![Coverage Status](https://coveralls.io/repos/github/neluzhin/specificator/badge.svg?branch=master)](https://coveralls.io/github/neluzhin/specificator?branch=master)
+
 Specificator is a framework (you may call it collection of DTOs) designed to help you writing [OpenAPI 3 documentation](https://github.com/OAI/OpenAPI-Specification/tree/master/versions).
 
 ## Alternatives

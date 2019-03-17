@@ -2,4 +2,4 @@
 
 make npm-dependencies-installation
 
-make test
+make test-with-coveralls-report
