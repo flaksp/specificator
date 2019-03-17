@@ -2,4 +2,6 @@
 
 make npm-dependencies-installation
 
-make test
+make build
+
+make publish

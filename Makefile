@@ -11,6 +11,9 @@ build: ## Compiles library
 	rm -rf dist
 	node_modules/.bin/tsc
 
+publish: ## Publishes library to NPM registry
+	node_modules/.bin/npm-publish-git-tag
+
 lint: lint-ts ## Lint code style of entire project
 
 lint-ts: ## Lint TypeScript code style with TSLint

@@ -1,18 +1,35 @@
 workflow "Push checks" {
   on = "push"
-  resolves = ["Tests", "Lint"]
+  resolves = ["Lint", "Tests with coverage"]
 }
 
-action "Tests" {
+action "Lint" {
   uses = "./.github"
-  runs = "/test.sh"
+  runs = "/lint.sh"
+}
+
+action "Tests with coverage" {
+  uses = "./.github"
+  runs = "/test-with-coveralls-report.sh"
   env = {
     COVERALLS_SERVICE_NAME = "github-actions"
   }
   secrets = ["COVERALLS_REPO_TOKEN"]
 }
 
-action "Lint" {
+workflow "Publish to NPM" {
+  on = "release"
+  resolves = ["Publish"]
+}
+
+action "Tests" {
   uses = "./.github"
-  runs = "/lint.sh"
+  runs = "/test.sh"
+}
+
+action "Publish" {
+  needs = ["Tests"]
+  uses = "./.github"
+  runs = "/publish-to-npm.sh"
+  secrets = ["NPM_TOKEN"]
 }
