@@ -7,6 +7,10 @@ dependencies-installation: npm-dependencies-installation ## Install all dependen
 npm-dependencies-installation: ## Install NPM dependencies
 	npm install
 
+build: ## Compiles library
+	rm -rf dist
+	node_modules/.bin/tsc
+
 lint: lint-ts ## Lint code style of entire project
 
 lint-ts: ## Lint TypeScript code style with TSLint

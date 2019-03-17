@@ -1,17 +1,16 @@
 {
     "compilerOptions": {
-        "module": "system",
-        "esModuleInterop": true,
+        "module": "commonjs",
+        "lib": ["es2017"],
+        "moduleResolution":"node",
         "noImplicitAny": true,
         "strictNullChecks": true,
-        "lib": ["es2017"],
         "removeComments": false,
-        "preserveConstEnums": true,
-        "outFile": "built/app.js",
         "declaration": true,
-        "sourceMap": true
+        "sourceMap": true,
+        "outDir": "./dist"
     },
     "include": [
-        "src/**/*"
+        "src/index.ts"
     ]
 }
