@@ -27,6 +27,9 @@
     "email": "petr@flaks.dev",
     "url": "https://github.com/neluzhin"
   },
+  "keywords": [
+    "openapi"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/neluzhin/specificator/issues"
