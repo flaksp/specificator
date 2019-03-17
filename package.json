@@ -22,7 +22,11 @@
     "dist",
     "docs"
   ],
-  "author": "",
+  "author": {
+    "name": "Petr Flaks",
+    "email": "petr@flaks.dev",
+    "url": "https://github.com/neluzhin"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/neluzhin/specificator/issues"
