@@ -1,4 +1,4 @@
-`# Specificator
+# Specificator
 
 [![Coverage Status](https://coveralls.io/repos/github/neluzhin/specificator/badge.svg?branch=master)](https://coveralls.io/github/neluzhin/specificator?branch=master)
 
