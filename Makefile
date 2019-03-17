@@ -17,10 +17,10 @@ cs-fixes: cs-fixes-ts ## Fix code style of entire project
 cs-fixes-ts: ## Fix TypeScript code style with TSLint
 	${TSLINT_COMMAND} --fix
 
-tests: ## Run Jest tests
+test: ## Run Jest tests
 	node_modules/.bin/jest
 
-tests-with-coveralls-report: ## Run Jest tests and report coverage to Coveralls
+test-with-coveralls-report: ## Run Jest tests and report coverage to Coveralls
 	node_modules/.bin/jestjest --coverage --coverageReporters=text-lcov | node_modules/.bin/coveralls
 
 help: ## View documentation for this Makefile

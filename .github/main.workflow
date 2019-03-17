@@ -5,7 +5,7 @@ workflow "Push checks" {
 
 action "Tests" {
   uses = "./.github"
-  runs = "/tests.sh"
+  runs = "/test.sh"
 }
 
 action "Lint" {

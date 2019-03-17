@@ -2,4 +2,4 @@
 
 make npm-dependencies-installation
 
-make tests
+make test
