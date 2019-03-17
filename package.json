@@ -1,6 +1,6 @@
 {
   "name": "specificator",
-  "description": "It is framework designed to help you writing OpenAPI 3 documentation.",
+  "description": "Framework for writing your OpenAPI 3 documentation in TypeScript.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "sideEffects": false,
