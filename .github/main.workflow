@@ -1,35 +1,33 @@
-workflow "Push checks" {
+workflow "Check code quality" {
   on = "push"
-  resolves = ["Lint", "Tests with coverage"]
+  resolves = ["lint/tslint", "test/jest"]
 }
 
-action "Lint" {
+workflow "Publish new release" {
+  on = "release"
+  resolves = ["deploy/npm"]
+}
+
+
+
+action "lint/tslint" {
   uses = "./.github"
   runs = "/lint.sh"
 }
 
-action "Tests with coverage" {
+action "test/jest" {
   uses = "./.github"
-  runs = "/test-with-coveralls-report.sh"
+  runs = "/test.sh"
   env = {
     COVERALLS_SERVICE_NAME = "github-actions"
   }
   secrets = ["COVERALLS_REPO_TOKEN"]
 }
 
-workflow "Publish to NPM" {
-  on = "release"
-  resolves = ["Publish"]
-}
-
-action "Tests" {
-  uses = "./.github"
-  runs = "/test.sh"
-}
-
-action "Publish" {
-  needs = ["Tests"]
+action "deploy/npm" {
+  needs = ["test/jest"]
   uses = "./.github"
   runs = "/publish-to-npm.sh"
   secrets = ["NPM_TOKEN"]
 }
+

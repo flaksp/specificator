@@ -2,4 +2,9 @@
 
 make npm-dependencies-installation
 
-make test
+if [ $GITHUB_REF = "master" ]; then
+    make test-with-coveralls-report
+else
+    make test
+fi
+
