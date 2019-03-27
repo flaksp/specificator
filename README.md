@@ -32,7 +32,7 @@ For usage docs and examples please visit [docs/README.md](docs/README.md) file.
 
 All of us know it's hard to support OpenAPI 3 documentation. People use different ways to write it: [Jsonnet](https://jsonnet.org/), [Go templates](https://golang.org/pkg/text/template/), JSON Pointers inside plain JSON/YAML files and many other exotic ways. Sometimes our docs become huge and hard to support; weak tools are risky for developers and they are vulnerable to mistakes. Some tools say nothing when you do something wrong: for example you may not notice a typo in a property name and your documentation may become invalid for visualization tools such as [ReDoc](https://github.com/Rebilly/ReDoc) and [Swagger UI](https://github.com/swagger-api/swagger-ui). That's because most of solutions are weak [DSLs](https://en.wikipedia.org/wiki/Domain-specific_language) not designed for that purpose. We suggest that you stop using these solutions and start using strict frameworks such as Specificator.
 
-## What is Specificator
+## What is Specificator?
 
 Specificator is a framework written fully in [TypeScript](https://www.typescriptlang.org/) language - it's just like JavaScript, but with strict type system. We believe that TypeScript is the best language for that purpose because it's the most generic language for web developers (developing HTTP APIs is kind of web development, huh), it's easy to dive in and it has large community.
 
@@ -89,8 +89,8 @@ See all benefits:
 
 * Write your docs in a real programming language called TypeScript. You may use anything here: loops, reading files, other libraries. You are not limited. Use anything possible within TypeScript.
 * Because it's written in TypeScript, your IDE and compiler will help you and even say what you've written wrong.
-* Almost everything is extendable. That's just OOP.
 * Specificator's classes are mapped to OpenAPI. If you already know OpenAPI 3, you know Specificator, too. However it's recommended to read Specificator's [short documentation](docs/README.md) that covers some edge cases.
+* Almost everything is extendable. If you feel that Specificator missing something which doesn't allow you to customize it enough, please feel free describe your case or problem in [repository issues](https://github.com/neluzhin/specificator/issues). 
 
 ## License
 
