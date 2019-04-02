@@ -8,4 +8,4 @@ RUN chmod +x /lint.sh
 RUN chmod +x /test.sh
 RUN chmod +x /publish-to-npm.sh
 
-RUN apk add --no-cache make git
+RUN apk update --no-cache && apk upgrade --no-cache && apk add --no-cache --upgrade make git
