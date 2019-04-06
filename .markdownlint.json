@@ -1,0 +1,20 @@
+{
+  "default": true,
+  "heading-style": {
+    "style": "atx"
+  },
+  "ul-style": {
+    "style": "asterisk"
+  },
+  "line-length": false,
+  "no-trailing-punctuation": {
+    "punctuation": ".,;:"
+  },
+  "no-blanks-blockquote": false,
+  "ol-prefix": {
+    "style": "one_or_ordered"
+  },
+  "hr-style": {
+    "style": "---"
+  }
+}

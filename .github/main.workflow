@@ -1,6 +1,6 @@
 workflow "Check code quality" {
   on = "push"
-  resolves = ["lint/tslint", "test/jest"]
+  resolves = ["lint/tslint", "lint/markdownlint", "test/jest"]
 }
 
 workflow "Publish new release" {
@@ -8,16 +8,19 @@ workflow "Publish new release" {
   resolves = ["deploy/npm"]
 }
 
-
+action "lint/markdownlint" {
+  uses = "./.github"
+  runs = "/markdownlint.sh"
+}
 
 action "lint/tslint" {
   uses = "./.github"
-  runs = "/lint.sh"
+  runs = "/tslint.sh"
 }
 
 action "test/jest" {
   uses = "./.github"
-  runs = "/test.sh"
+  runs = "/jest.sh"
   env = {
     COVERALLS_SERVICE_NAME = "github-actions"
   }

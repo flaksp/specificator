@@ -2,4 +2,4 @@
 
 make npm-dependencies-installation
 
-make lint
+make lint-md

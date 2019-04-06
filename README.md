@@ -14,13 +14,13 @@ Specificator is a framework (you may call it collection of DTOs) designed to hel
 
 For NPM users:
 
-```
+```console
 npm install specificator --save-dev
 ```
 
 For Yarn users:
 
-```
+```console
 yarn add specificator --dev
 ```
 
@@ -90,7 +90,7 @@ See all benefits:
 * Write your docs in a real programming language called TypeScript. You may use anything here: loops, reading files, other libraries. You are not limited. Use anything possible within TypeScript.
 * Because it's written in TypeScript, your IDE and compiler will help you and even say what you've written wrong.
 * Specificator's classes are mapped to OpenAPI. If you already know OpenAPI 3, you know Specificator, too. However it's recommended to read Specificator's [short documentation](docs/README.md) that covers some edge cases.
-* Almost everything is extendable. If you feel that Specificator missing something which doesn't allow you to customize it enough, please feel free describe your case or problem in [repository issues](https://github.com/neluzhin/specificator/issues). 
+* Almost everything is extendable. If you feel that Specificator missing something which doesn't allow you to customize it enough, please feel free describe your case or problem in [repository issues](https://github.com/neluzhin/specificator/issues).
 
 ## License
 

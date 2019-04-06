@@ -14,10 +14,13 @@ build: ## Compiles library
 publish: ## Publishes library to NPM registry
 	node_modules/.bin/npm-publish-git-tag
 
-lint: lint-ts ## Lint code style of entire project
+lint: lint-ts lint-md ## Lint code style of entire project
 
 lint-ts: ## Lint TypeScript code style with TSLint
 	${TSLINT_COMMAND}
+
+lint-md: ## Link Markdown files with markdownlint
+	node_modules/.bin/markdownlint *.md docs/*.md
 
 cs-fixes: cs-fixes-ts ## Fix code style of entire project
 
