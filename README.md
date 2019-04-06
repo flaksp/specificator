@@ -74,7 +74,3 @@ See all benefits:
 * Because it's written in TypeScript, your IDE and compiler will help you and even say what you've written wrong.
 * Specificator's classes are mapped to OpenAPI. If you already know OpenAPI 3, you know Specificator, too. However it's recommended to read Specificator's [short documentation](docs/README.md) that covers some edge cases.
 * Almost everything is extendable. If you feel that Specificator missing something which doesn't allow you to customize it enough, please feel free describe your case or problem in [repository issues](https://github.com/neluzhin/specificator/issues).
-
-## License
-
-Specificator is licensed under MIT license. For further details please see [LICENSE](LICENSE) file.
