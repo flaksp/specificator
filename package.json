@@ -25,7 +25,8 @@
     "url": "https://github.com/neluzhin"
   },
   "keywords": [
-    "openapi"
+    "openapi",
+    "specificator"
   ],
   "license": "MIT",
   "bugs": {

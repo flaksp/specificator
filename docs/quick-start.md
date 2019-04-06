@@ -10,7 +10,7 @@ If you need configuration file, you may use Specificator's one as example: just 
 
 ## Install Specificator Serializer
 
-We recommend you install specificator-serializer. You may find installation instructions inside [neluzhin/specificator-serializer](https://github.com/neluzhin/specificator-serializer) repository.
+We recommend you install specificator-serializer. You may find installation instructions inside [specificator-serializer](https://www.npmjs.com/package/specificator-serializer) package documentation.
 
 ## Compiling "hello world" specification
 
