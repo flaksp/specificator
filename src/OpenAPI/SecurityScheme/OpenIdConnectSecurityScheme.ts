@@ -1,4 +1,5 @@
-import {SerializableInterface} from "../../Serializer/Serializer";
+import {SerializableInterface} from "../../Serializer/SerializableInterface";
+import {SerializerInterface} from "../../Serializer/SerializerInterface";
 import {SecurityScheme, SecuritySchemeInterface} from "./SecurityScheme";
 
 export interface OpenIdConnectSecuritySchemeInterface extends SecuritySchemeInterface {
@@ -26,7 +27,7 @@ export class OpenIdConnectSecurityScheme extends SecurityScheme implements OpenI
      */
     public readonly type: string = "openIdConnect";
 
-    public serialize(): { [p: string]: any } {
-        return this;
+    public serialize(serializer: SerializerInterface): { [p: string]: any } {
+        return serializer.serialize(this);
     }
 }

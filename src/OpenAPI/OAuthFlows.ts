@@ -1,4 +1,5 @@
-import {SerializableInterface} from "../Serializer/Serializer";
+import {SerializableInterface} from "../Serializer/SerializableInterface";
+import {SerializerInterface} from "../Serializer/SerializerInterface";
 import {AuthorizationCodeOAuthFlow} from "./OAuthFlow/AuthorizationCodeOAuthFlow";
 import {ClientCredentialsOAuthFlow} from "./OAuthFlow/ClientCredentialsOAuthFlow";
 import {ImplicitOAuthFlow} from "./OAuthFlow/ImplicitOAuthFlow";
@@ -44,7 +45,7 @@ export class OAuthFlows implements OAuthFlowsInterface, SerializableInterface {
      */
     public password?: ResourceOwnerPasswordOAuthFlow;
 
-    public serialize(): { [p: string]: any } {
-        return this;
+    public serialize(serializer: SerializerInterface): { [p: string]: any } {
+        return serializer.serialize(this);
     }
 }

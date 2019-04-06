@@ -1,6 +1,5 @@
 # Specificator
 
-[![Coverage Status](https://coveralls.io/repos/github/neluzhin/specificator/badge.svg?branch=master)](https://coveralls.io/github/neluzhin/specificator?branch=master)
 [![NPM downloads](https://img.shields.io/npm/dm/specificator.svg)](https://www.npmjs.com/package/specificator)
 [![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg?maxAge=604800)](https://renovatebot.com/)
 
@@ -8,25 +7,9 @@
 
 Specificator is a framework (you may call it collection of DTOs) designed to help you write [OpenAPI 3 documentation](https://github.com/OAI/OpenAPI-Specification/tree/master/versions).
 
-## Quick start
+## Documentation
 
-### Installation
-
-For NPM users:
-
-```console
-npm install specificator --save-dev
-```
-
-For Yarn users:
-
-```console
-yarn add specificator --dev
-```
-
-### Documentation
-
-For usage docs and examples please visit [docs/README.md](docs/README.md) file.
+For installation instructions, usage docs and examples please visit [docs/README.md](docs/README.md) file.
 
 ## What problems does Specificator solve?
 

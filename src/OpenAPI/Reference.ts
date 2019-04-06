@@ -1,4 +1,5 @@
-import {SerializableInterface} from "../Serializer/Serializer";
+import {SerializableInterface} from "../Serializer/SerializableInterface";
+import {SerializerInterface} from "../Serializer/SerializerInterface";
 
 export interface ReferenceInterface {
     $ref: string;
@@ -23,7 +24,7 @@ export class Reference implements ReferenceInterface, SerializableInterface {
      */
     public $ref: string;
 
-    public serialize(): { [p: string]: any } {
-        return this;
+    public serialize(serializer: SerializerInterface): { [p: string]: any } {
+        return serializer.serialize(this);
     }
 }

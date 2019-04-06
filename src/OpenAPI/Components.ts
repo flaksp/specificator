@@ -1,4 +1,4 @@
-import {SerializableInterface} from "../Serializer/Serializer";
+import {SerializableInterface} from "../Serializer/SerializableInterface";
 import {CallbackInterface} from "./Callback";
 import {Example} from "./Example";
 import {Header} from "./Header";

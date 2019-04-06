@@ -1,4 +1,5 @@
-import {SerializableInterface} from "../../Serializer/Serializer";
+import {SerializableInterface} from "../../Serializer/SerializableInterface";
+import {SerializerInterface} from "../../Serializer/SerializerInterface";
 import {Example} from "../Example";
 import {MediaType} from "../MediaType";
 import {Reference} from "../Reference";
@@ -89,5 +90,5 @@ export abstract class Parameter implements ParameterInterface, SerializableInter
      */
     public schema?: Schema | Reference;
 
-    public abstract serialize(): { [p: string]: any };
+    public abstract serialize(serializer: SerializerInterface): { [p: string]: any };
 }

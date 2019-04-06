@@ -1,4 +1,5 @@
-import {SerializableInterface} from "../Serializer/Serializer";
+import {SerializableInterface} from "../Serializer/SerializableInterface";
+import {SerializerInterface} from "../Serializer/SerializerInterface";
 import {Components} from "./Components";
 import {ExternalDocumentation} from "./ExternalDocumentation";
 import {Info} from "./Info";
@@ -74,7 +75,7 @@ export class OpenAPI implements OpenAPIInterface, SerializableInterface {
      */
     public tags?: Tag[];
 
-    public serialize(): { [p: string]: any } {
-        return this;
+    public serialize(serializer: SerializerInterface): { [p: string]: any } {
+        return serializer.serialize(this);
     }
 }

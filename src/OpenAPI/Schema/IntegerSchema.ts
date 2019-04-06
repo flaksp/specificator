@@ -1,4 +1,5 @@
-import {SerializableInterface} from "../../Serializer/Serializer";
+import {SerializableInterface} from "../../Serializer/SerializableInterface";
+import {SerializerInterface} from "../../Serializer/SerializerInterface";
 import {Schema, SchemaInterface} from "./Schema";
 
 export interface IntegerSchemaInterface extends SchemaInterface {
@@ -60,7 +61,7 @@ export class IntegerSchema extends Schema implements IntegerSchemaInterface, Ser
      */
     public readonly type: string = "integer";
 
-    public serialize(): { [p: string]: any } {
-        return this;
+    public serialize(serializer: SerializerInterface): { [p: string]: any } {
+        return serializer.serialize(this);
     }
 }

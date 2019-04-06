@@ -1,4 +1,5 @@
-import {SerializableInterface} from "../Serializer/Serializer";
+import {SerializableInterface} from "../Serializer/SerializableInterface";
+import {SerializerInterface} from "../Serializer/SerializerInterface";
 import {Header} from "./Header";
 import {Reference} from "./Reference";
 
@@ -35,7 +36,7 @@ export class Encoding implements EncodingInterface, SerializableInterface {
      */
     public headers?: { [_: string]: string | Header | Reference; };
 
-    public serialize(): { [p: string]: any } {
-        return this;
+    public serialize(serializer: SerializerInterface): { [p: string]: any } {
+        return serializer.serialize(this);
     }
 }

@@ -1,4 +1,5 @@
-import {SerializableInterface} from "../Serializer/Serializer";
+import {SerializableInterface} from "../Serializer/SerializableInterface";
+import {SerializerInterface} from "../Serializer/SerializerInterface";
 
 export interface ExternalDocumentationInterface {
     description?: string;
@@ -26,7 +27,7 @@ export class ExternalDocumentation implements ExternalDocumentationInterface, Se
      */
     public url: string;
 
-    public serialize(): { [p: string]: any } {
-        return this;
+    public serialize(serializer: SerializerInterface): { [p: string]: any } {
+        return serializer.serialize(this);
     }
 }

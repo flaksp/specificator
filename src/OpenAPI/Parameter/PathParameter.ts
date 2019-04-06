@@ -1,4 +1,5 @@
-import {SerializableInterface} from "../../Serializer/Serializer";
+import {SerializableInterface} from "../../Serializer/SerializableInterface";
+import {SerializerInterface} from "../../Serializer/SerializerInterface";
 import {Parameter, ParameterInterface} from "./Parameter";
 
 /**
@@ -27,7 +28,7 @@ export class PathParameter extends Parameter implements PathParameterInterface, 
      */
     public readonly required: boolean = true;
 
-    public serialize(): { [p: string]: any } {
-        return this;
+    public serialize(serializer: SerializerInterface): { [p: string]: any } {
+        return serializer.serialize(this);
     }
 }

@@ -1,4 +1,5 @@
-import {SerializableInterface} from "../Serializer/Serializer";
+import {SerializableInterface} from "../Serializer/SerializableInterface";
+import {SerializerInterface} from "../Serializer/SerializerInterface";
 import {MediaType} from "./MediaType";
 
 export interface RequestBodyInterface {
@@ -34,7 +35,7 @@ export class RequestBody implements RequestBodyInterface, SerializableInterface 
      */
     public required: boolean;
 
-    public serialize(): { [p: string]: any } {
-        return this;
+    public serialize(serializer: SerializerInterface): { [p: string]: any } {
+        return serializer.serialize(this);
     }
 }

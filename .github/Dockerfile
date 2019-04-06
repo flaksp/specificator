@@ -1,11 +1,9 @@
 FROM node:8.15.1-alpine
 
-COPY ./jest.sh /jest.sh
 COPY ./markdownlint.sh /markdownlint.sh
 COPY ./publish-to-npm.sh /publish-to-npm.sh
 COPY ./tslint.sh /tslint.sh
 
-RUN chmod +x /jest.sh
 RUN chmod +x /markdownlint.sh
 RUN chmod +x /publish-to-npm.sh
 RUN chmod +x /tslint.sh

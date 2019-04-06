@@ -1,6 +1,6 @@
 workflow "Check code quality" {
   on = "push"
-  resolves = ["lint/tslint", "lint/markdownlint", "test/jest"]
+  resolves = ["lint/tslint", "lint/markdownlint"]
 }
 
 workflow "Publish new release" {
@@ -16,15 +16,6 @@ action "lint/markdownlint" {
 action "lint/tslint" {
   uses = "./.github"
   runs = "/tslint.sh"
-}
-
-action "test/jest" {
-  uses = "./.github"
-  runs = "/jest.sh"
-  env = {
-    COVERALLS_SERVICE_NAME = "github-actions"
-  }
-  secrets = ["COVERALLS_REPO_TOKEN"]
 }
 
 action "deploy/npm" {

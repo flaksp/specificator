@@ -1,4 +1,5 @@
-import {SerializableInterface} from "../../Serializer/Serializer";
+import {SerializableInterface} from "../../Serializer/SerializableInterface";
+import {SerializerInterface} from "../../Serializer/SerializerInterface";
 
 export interface SecuritySchemeInterface {
     description?: string;
@@ -24,5 +25,5 @@ export abstract class SecurityScheme implements SecuritySchemeInterface, Seriali
      */
     public abstract type: string;
 
-    public abstract serialize(): { [p: string]: any };
+    public abstract serialize(serializer: SerializerInterface): { [p: string]: any };
 }
