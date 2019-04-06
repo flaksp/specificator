@@ -1,5 +1,4 @@
 import {SerializableInterface} from "../Serializer/SerializableInterface";
-import {SerializerInterface} from "../Serializer/SerializerInterface";
 import {Example} from "./Example";
 import {MediaType} from "./MediaType";
 import {Reference} from "./Reference";
@@ -70,7 +69,7 @@ export class Header implements HeaderInterface, SerializableInterface {
      */
     public schema?: Schema | Reference;
 
-    public serialize(serializer: SerializerInterface): { [p: string]: any } {
-        return serializer.serialize(this);
+    public serialize(): { [p: string]: any } {
+        return this;
     }
 }

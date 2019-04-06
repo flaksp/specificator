@@ -1,5 +1,4 @@
 import {SerializableInterface} from "../Serializer/SerializableInterface";
-import {SerializerInterface} from "../Serializer/SerializerInterface";
 import {ServerVariable} from "./ServerVariable";
 
 export interface ServerInterface {
@@ -35,7 +34,7 @@ export class Server implements ServerInterface, SerializableInterface {
      */
     public variables?: { [_: string]: ServerVariable; };
 
-    public serialize(serializer: SerializerInterface): { [p: string]: any } {
-        return serializer.serialize(this);
+    public serialize(): { [p: string]: any } {
+        return this;
     }
 }

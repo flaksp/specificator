@@ -1,5 +1,4 @@
 import {SerializableInterface} from "../Serializer/SerializableInterface";
-import {SerializerInterface} from "../Serializer/SerializerInterface";
 import {Contact} from "./Contact";
 import {License} from "./License";
 
@@ -57,7 +56,7 @@ export class Info implements InfoInterface, SerializableInterface {
      */
     public version: string;
 
-    public serialize(serializer: SerializerInterface): { [p: string]: any } {
-        return serializer.serialize(this);
+    public serialize(): { [p: string]: any } {
+        return this;
     }
 }

@@ -1,5 +1,4 @@
 import {SerializableInterface} from "../../Serializer/SerializableInterface";
-import {SerializerInterface} from "../../Serializer/SerializerInterface";
 import {OAuthFlows} from "../OAuthFlows";
 import {SecurityScheme, SecuritySchemeInterface} from "./SecurityScheme";
 
@@ -28,7 +27,7 @@ export class OAuth2SecurityScheme extends SecurityScheme implements OAuth2Securi
      */
     public readonly type: string = "oauth2";
 
-    public serialize(serializer: SerializerInterface): { [p: string]: any } {
-        return serializer.serialize(this);
+    public serialize(): { [p: string]: any } {
+        return this;
     }
 }

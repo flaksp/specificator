@@ -1,5 +1,4 @@
 import {SerializableInterface} from "../../Serializer/SerializableInterface";
-import {SerializerInterface} from "../../Serializer/SerializerInterface";
 import {Parameter, ParameterInterface} from "./Parameter";
 
 export interface QueryParameterInterface extends ParameterInterface {
@@ -28,7 +27,7 @@ export class QueryParameter extends Parameter implements QueryParameterInterface
      */
     public readonly in: string = "query";
 
-    public serialize(serializer: SerializerInterface): { [p: string]: any } {
-        return serializer.serialize(this);
+    public serialize(): { [p: string]: any } {
+        return this;
     }
 }

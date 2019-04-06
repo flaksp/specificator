@@ -1,5 +1,4 @@
 import {SerializableInterface} from "../Serializer/SerializableInterface";
-import {SerializerInterface} from "../Serializer/SerializerInterface";
 import {Header} from "./Header";
 import {Link} from "./Link";
 import {MediaType} from "./MediaType";
@@ -45,7 +44,7 @@ export class Response implements ResponseInterface, SerializableInterface {
      */
     public links?: { [_: string]: string | Link | Reference; };
 
-    public serialize(serializer: SerializerInterface): { [p: string]: any } {
-        return serializer.serialize(this);
+    public serialize(): { [p: string]: any } {
+        return this;
     }
 }

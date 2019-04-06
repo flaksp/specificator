@@ -1,5 +1,4 @@
 import {SerializableInterface} from "../../Serializer/SerializableInterface";
-import {SerializerInterface} from "../../Serializer/SerializerInterface";
 import {ExternalDocumentation} from "../ExternalDocumentation";
 import {Reference} from "../Reference";
 
@@ -117,5 +116,5 @@ export abstract class Schema implements SchemaInterface, SerializableInterface {
      */
     public writeOnly: boolean;
 
-    public abstract serialize(serializer: SerializerInterface): { [p: string]: any };
+    public abstract serialize(): { [p: string]: any };
 }

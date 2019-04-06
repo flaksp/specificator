@@ -1,5 +1,4 @@
 import {SerializableInterface} from "../../Serializer/SerializableInterface";
-import {SerializerInterface} from "../../Serializer/SerializerInterface";
 import {Discriminator} from "../Discriminator";
 import {Reference} from "../Reference";
 import {Schema, SchemaInterface} from "./Schema";
@@ -55,7 +54,7 @@ export class ObjectSchema extends Schema implements ObjectSchemaInterface, Seria
      */
     public readonly type: string = "object";
 
-    public serialize(serializer: SerializerInterface): { [p: string]: any } {
-        return serializer.serialize(this);
+    public serialize(): { [p: string]: any } {
+        return this;
     }
 }

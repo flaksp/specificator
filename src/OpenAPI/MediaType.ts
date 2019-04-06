@@ -1,5 +1,4 @@
 import {SerializableInterface} from "../Serializer/SerializableInterface";
-import {SerializerInterface} from "../Serializer/SerializerInterface";
 import {Encoding} from "./Encoding";
 import {Example} from "./Example";
 import {Reference} from "./Reference";
@@ -45,7 +44,7 @@ export class MediaType implements MediaTypeInterface, SerializableInterface {
      */
     public schema?: Schema | Reference;
 
-    public serialize(serializer: SerializerInterface): { [p: string]: any } {
-        return serializer.serialize(this);
+    public serialize(): { [p: string]: any } {
+        return this;
     }
 }

@@ -1,5 +1,4 @@
 import {SerializableInterface} from "../../Serializer/SerializableInterface";
-import {SerializerInterface} from "../../Serializer/SerializerInterface";
 import {SecurityScheme, SecuritySchemeInterface} from "./SecurityScheme";
 
 export interface ApiKeySecuritySchemeInterface extends SecuritySchemeInterface {
@@ -34,7 +33,7 @@ export class ApiKeySecurityScheme extends SecurityScheme implements ApiKeySecuri
      */
     public readonly type: string = "apiKey";
 
-    public serialize(serializer: SerializerInterface): { [p: string]: any } {
-        return serializer.serialize(this);
+    public serialize(): { [p: string]: any } {
+        return this;
     }
 }

@@ -1,5 +1,4 @@
 import {SerializableInterface} from "../Serializer/SerializableInterface";
-import {SerializerInterface} from "../Serializer/SerializerInterface";
 import {Operation} from "./Operation";
 import {Parameter} from "./Parameter/Parameter";
 import {Reference} from "./Reference";
@@ -108,7 +107,7 @@ export class PathItem implements PathItemInterface, SerializableInterface {
      */
     public trace?: Operation;
 
-    public serialize(serializer: SerializerInterface): { [p: string]: any } {
-        return serializer.serialize(this);
+    public serialize(): { [p: string]: any } {
+        return this;
     }
 }

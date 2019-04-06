@@ -1,5 +1,4 @@
 import {SerializableInterface} from "../../Serializer/SerializableInterface";
-import {SerializerInterface} from "../../Serializer/SerializerInterface";
 
 export interface OAuthFlowInterface {
     refreshUrl?: string;
@@ -27,5 +26,5 @@ export abstract class OAuthFlow implements OAuthFlowInterface, SerializableInter
      */
     public scopes: { [scopeName: string]: string };
 
-    public abstract serialize(serializer: SerializerInterface): { [p: string]: any };
+    public abstract serialize(): { [p: string]: any };
 }

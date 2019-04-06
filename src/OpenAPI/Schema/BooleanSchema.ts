@@ -1,5 +1,4 @@
 import {SerializableInterface} from "../../Serializer/SerializableInterface";
-import {SerializerInterface} from "../../Serializer/SerializerInterface";
 import {Schema, SchemaInterface} from "./Schema";
 
 export interface BooleanSchemaInterface extends SchemaInterface {
@@ -34,7 +33,7 @@ export class BooleanSchema extends Schema implements BooleanSchemaInterface, Ser
      */
     public readonly type: string = "boolean";
 
-    public serialize(serializer: SerializerInterface): { [p: string]: any } {
-        return serializer.serialize(this);
+    public serialize(): { [p: string]: any } {
+        return this;
     }
 }

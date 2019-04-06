@@ -1,5 +1,4 @@
 import {SerializableInterface} from "../Serializer/SerializableInterface";
-import {SerializerInterface} from "../Serializer/SerializerInterface";
 import {Server} from "./Server";
 
 export interface LinkInterface {
@@ -60,7 +59,7 @@ export class Link implements LinkInterface, SerializableInterface {
      */
     public server?: Server;
 
-    public serialize(serializer: SerializerInterface): { [p: string]: any } {
-        return serializer.serialize(this);
+    public serialize(): { [p: string]: any } {
+        return this;
     }
 }

@@ -1,5 +1,4 @@
 import {SerializableInterface} from "../../Serializer/SerializableInterface";
-import {SerializerInterface} from "../../Serializer/SerializerInterface";
 import {OAuthFlow, OAuthFlowInterface} from "./OAuthFlow";
 
 export interface AuthorizationCodeOAuthFlowInterface extends OAuthFlowInterface {
@@ -29,7 +28,7 @@ export class AuthorizationCodeOAuthFlow extends OAuthFlow implements Authorizati
      */
     public tokenUrl: string;
 
-    public serialize(serializer: SerializerInterface): { [p: string]: any } {
-        return serializer.serialize(this);
+    public serialize(): { [p: string]: any } {
+        return this;
     }
 }

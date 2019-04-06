@@ -1,5 +1,4 @@
 import {SerializableInterface} from "../Serializer/SerializableInterface";
-import {SerializerInterface} from "../Serializer/SerializerInterface";
 
 export interface ContactInterface {
     email?: string;
@@ -34,7 +33,7 @@ export class Contact implements ContactInterface, SerializableInterface {
      */
     public url?: string;
 
-    public serialize(serializer: SerializerInterface): { [p: string]: any } {
-        return serializer.serialize(this);
+    public serialize(): { [p: string]: any } {
+        return this;
     }
 }

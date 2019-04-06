@@ -1,5 +1,4 @@
 import {SerializableInterface} from "../../Serializer/SerializableInterface";
-import {SerializerInterface} from "../../Serializer/SerializerInterface";
 import {Reference} from "../Reference";
 import {Schema, SchemaInterface} from "./Schema";
 
@@ -40,7 +39,7 @@ export class ArraySchema extends Schema implements ArraySchemaInterface, Seriali
 
     public uniqueItems?: boolean;
 
-    public serialize(serializer: SerializerInterface): { [p: string]: any } {
-        return serializer.serialize(this);
+    public serialize(): { [p: string]: any } {
+        return this;
     }
 }

@@ -1,5 +1,4 @@
 import {SerializableInterface} from "../../Serializer/SerializableInterface";
-import {SerializerInterface} from "../../Serializer/SerializerInterface";
 import {Schema, SchemaInterface} from "./Schema";
 
 export interface StringSchemaInterface extends SchemaInterface {
@@ -60,7 +59,7 @@ export class StringSchema extends Schema implements StringSchemaInterface, Seria
      */
     public readonly type: string = "string";
 
-    public serialize(serializer: SerializerInterface): { [p: string]: any } {
-        return serializer.serialize(this);
+    public serialize(): { [p: string]: any } {
+        return this;
     }
 }
