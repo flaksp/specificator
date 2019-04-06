@@ -32,7 +32,7 @@ export class RequestBody implements RequestBodyInterface, SerializableInterface 
     /**
      * Determines if the request body is required in the request. Defaults to `false`.
      */
-    public required: boolean = false;
+    public required: boolean;
 
     public serialize(): { [p: string]: any } {
         return this;

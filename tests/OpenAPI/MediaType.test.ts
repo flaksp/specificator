@@ -9,10 +9,14 @@ test("MediaType should be serializable", () => {
         examples: {},
         schema: new StringSchema({
             default: "Test default",
+            deprecated: false,
             example: "Test example",
             maxLength: 100,
             minLength: 50,
+            nullable: false,
             pattern: "^test$",
+            readOnly: false,
+            writeOnly: false,
         }),
     });
 

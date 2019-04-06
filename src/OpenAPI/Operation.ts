@@ -52,7 +52,7 @@ export class Operation implements OperationInterface, SerializableInterface {
     /**
      * Declares this operation to be deprecated. Consumers SHOULD refrain from usage of the declared operation. Default value is `false`.
      */
-    public deprecated?: boolean = false;
+    public deprecated?: boolean;
 
     /**
      * A verbose explanation of the operation behavior. [CommonMark syntax](http://spec.commonmark.org/) MAY be used for rich text representation.

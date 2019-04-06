@@ -81,7 +81,7 @@ export abstract class Schema implements SchemaInterface, SerializableInterface {
     /**
      * Specifies that a schema is deprecated and SHOULD be transitioned out of usage. Default value is `false`.
      */
-    public deprecated: boolean = false;
+    public deprecated: boolean;
 
     /**
      * [CommonMark syntax](http://spec.commonmark.org/) MAY be used for rich text representation.
@@ -95,14 +95,14 @@ export abstract class Schema implements SchemaInterface, SerializableInterface {
 
     public not?: Array<Schema|Reference>;
 
-    public nullable: boolean = false;
+    public nullable: boolean;
 
     public oneOf?: Array<Schema|Reference>;
 
     /**
      * Relevant only for Schema `"properties"` definitions. Declares the property as "read only". This means that it MAY be sent as part of a response but SHOULD NOT be sent as part of the request. If the property is marked as `readOnly` being `true` and is in the `required` list, the `required` will take effect on the response only. A property MUST NOT be marked as both `readOnly` and `writeOnly` being `true`. Default value is `false`.
      */
-    public readOnly: boolean = false;
+    public readOnly: boolean;
 
     public title?: string;
 
@@ -114,7 +114,7 @@ export abstract class Schema implements SchemaInterface, SerializableInterface {
     /**
      * Relevant only for Schema `"properties"` definitions. Declares the property as "write only". Therefore, it MAY be sent as part of a request but SHOULD NOT be sent as part of the response. If the property is marked as `writeOnly` being `true` and is in the `required` list, the `required` will take effect on the request only. A property MUST NOT be marked as both `readOnly` and `writeOnly` being `true`. Default value is `false`.
      */
-    public writeOnly: boolean = false;
+    public writeOnly: boolean;
 
     public abstract serialize(): { [p: string]: any };
 }

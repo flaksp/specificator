@@ -42,7 +42,7 @@ export class Header implements HeaderInterface, SerializableInterface {
     /**
      * Specifies that a parameter is deprecated and SHOULD be transitioned out of usage. Default value is `false`.
      */
-    public deprecated: boolean = false;
+    public deprecated: boolean;
 
     /**
      * A brief description of the parameter. This could contain examples of use. [CommonMark syntax](http://spec.commonmark.org/) MAY be used for rich text representation.
@@ -62,7 +62,7 @@ export class Header implements HeaderInterface, SerializableInterface {
     /**
      * Determines whether this parameter is mandatory. If the [parameter location](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#parameterIn) is "path", this property is **REQUIRED** and its value MUST be `true`. Otherwise, the property MAY be included and its default value is `false`.
      */
-    public required: boolean = false;
+    public required: boolean;
 
     /**
      * The schema defining the type used for the parameter.
