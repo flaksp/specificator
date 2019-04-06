@@ -19,7 +19,6 @@ action "lint/tslint" {
 }
 
 action "deploy/npm" {
-  needs = ["test/jest"]
   uses = "./.github"
   runs = "/publish-to-npm.sh"
   secrets = ["NPM_TOKEN"]
