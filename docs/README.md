@@ -8,7 +8,11 @@ npm install specificator --save-dev
 
 ## Quick start
 
-If you need start quickly, see [Quick start](./quick-start.md) guide.
+If you need start quickly, see [quick start](./quick-start.md) guide. It also contains usage examples.
+
+## Class reference
+
+Specificator classes mapped 1-to-1 to OpenAPI 3 specification. For example Specificator's [Tag.ts](../src/OpenAPI/Tag.ts) has the same structure as written in OpenAPI's [Tag Object](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#tagObject) definition. Feel free to read Specificator's [sources](../src) because they're well documented.
 
 ## Mastering Specificator
 
