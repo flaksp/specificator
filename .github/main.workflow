@@ -8,19 +8,42 @@ workflow "Publish new release" {
   resolves = ["deploy/npm"]
 }
 
+action "dependencies/npm" {
+  uses = "docker://node:8.16.0-alpine"
+  runs = "npm"
+  args = ["install"]
+}
+
 action "lint/markdownlint" {
-  uses = "./.github"
-  runs = "/markdownlint.sh"
+  needs = [
+    "dependencies/npm"
+  ]
+  uses = "docker://node:8.16.0-alpine"
+  args = ["node_modules/.bin/markdownlint", "*.md", "docs/*.md"]
 }
 
 action "lint/tslint" {
-  uses = "./.github"
-  runs = "/tslint.sh"
+  needs = [
+    "dependencies/npm"
+  ]
+  uses = "docker://node:8.16.0-alpine"
+  args = ["node_modules/.bin/tslint", "--project", "."]
+}
+
+action "app/build" {
+  needs = [
+    "dependencies/npm"
+  ]
+  uses = "docker://node:8.16.0-alpine"
+  args = ["node_modules/.bin/tsc"]
 }
 
 action "deploy/npm" {
-  uses = "./.github"
-  runs = "/publish-to-npm.sh"
+  needs = [
+    "dependencies/npm",
+    "app/build"
+  ]
+  uses = "docker://node:8.16.0-alpine"
+  args = ["node_modules/.bin/npm-publish-git-tag"]
   secrets = ["NPM_TOKEN"]
 }
-
