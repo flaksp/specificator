@@ -1,4 +1,5 @@
 import {SerializableInterface} from "../Serializer/SerializableInterface";
+import {SafeEditableInterface} from "./SafeEditableInterface";
 
 export interface ReferenceInterface {
     $ref: string;
@@ -13,7 +14,7 @@ export interface ReferenceInterface {
  *
  * @see https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#reference-object
  */
-export class Reference implements ReferenceInterface, SerializableInterface {
+export class Reference implements ReferenceInterface, SerializableInterface, SafeEditableInterface {
     public constructor(properties: ReferenceInterface) {
         Object.assign(this, properties);
     }
@@ -22,6 +23,17 @@ export class Reference implements ReferenceInterface, SerializableInterface {
      * **REQUIRED**. The reference string.
      */
     public $ref: string;
+
+    /**
+     * @inheritDoc
+     */
+    public cloneAndEdit<T>(callback: (object: T) => void): T {
+        const copy = require("deepcopy")(this);
+
+        callback(copy);
+
+        return copy;
+    }
 
     public serialize(): { [p: string]: any } {
         return this;

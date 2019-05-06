@@ -3,6 +3,7 @@ import {AuthorizationCodeOAuthFlow} from "./OAuthFlow/AuthorizationCodeOAuthFlow
 import {ClientCredentialsOAuthFlow} from "./OAuthFlow/ClientCredentialsOAuthFlow";
 import {ImplicitOAuthFlow} from "./OAuthFlow/ImplicitOAuthFlow";
 import {ResourceOwnerPasswordOAuthFlow} from "./OAuthFlow/ResourceOwnerPasswordOAuthFlow";
+import {SafeEditableInterface} from "./SafeEditableInterface";
 
 export interface OAuthFlowsInterface {
     authorizationCode?: AuthorizationCodeOAuthFlow;
@@ -19,7 +20,7 @@ export interface OAuthFlowsInterface {
  *
  * @see https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#oauth-flows-object
  */
-export class OAuthFlows implements OAuthFlowsInterface, SerializableInterface {
+export class OAuthFlows implements OAuthFlowsInterface, SerializableInterface, SafeEditableInterface {
     public constructor(properties: OAuthFlowsInterface) {
         Object.assign(this, properties);
     }
@@ -43,6 +44,17 @@ export class OAuthFlows implements OAuthFlowsInterface, SerializableInterface {
      * Configuration for the OAuth Resource Owner Password flow.
      */
     public password?: ResourceOwnerPasswordOAuthFlow;
+
+    /**
+     * @inheritDoc
+     */
+    public cloneAndEdit<T>(callback: (object: T) => void): T {
+        const copy = require("deepcopy")(this);
+
+        callback(copy);
+
+        return copy;
+    }
 
     public serialize(): { [p: string]: any } {
         return this;

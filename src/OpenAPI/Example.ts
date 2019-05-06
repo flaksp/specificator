@@ -1,4 +1,5 @@
 import {SerializableInterface} from "../Serializer/SerializableInterface";
+import {SafeEditableInterface} from "./SafeEditableInterface";
 
 export interface ExampleInterface {
     description?: string;
@@ -13,7 +14,7 @@ export interface ExampleInterface {
 /**
  * @see https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#exampleObject
  */
-export class Example implements ExampleInterface, SerializableInterface {
+export class Example implements ExampleInterface, SerializableInterface, SafeEditableInterface {
     public constructor(properties: ExampleInterface) {
         Object.assign(this, properties);
     }
@@ -37,6 +38,17 @@ export class Example implements ExampleInterface, SerializableInterface {
      * Embedded literal example. The `value` field and `externalValue` field are mutually exclusive. To represent examples of media types that cannot naturally represented in JSON or YAML, use a string value to contain the example, escaping where necessary.
      */
     public value?: any;
+
+    /**
+     * @inheritDoc
+     */
+    public cloneAndEdit<T>(callback: (object: T) => void): T {
+        const copy = require("deepcopy")(this);
+
+        callback(copy);
+
+        return copy;
+    }
 
     public serialize(): { [p: string]: any } {
         return this;

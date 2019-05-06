@@ -1,4 +1,5 @@
 import {SerializableInterface} from "../Serializer/SerializableInterface";
+import {SafeEditableInterface} from "./SafeEditableInterface";
 
 export interface LicenseInterface {
     name: string;
@@ -11,7 +12,7 @@ export interface LicenseInterface {
  *
  * @see https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#license-object
  */
-export class License implements LicenseInterface, SerializableInterface {
+export class License implements LicenseInterface, SerializableInterface, SafeEditableInterface {
     public constructor(properties: LicenseInterface) {
         Object.assign(this, properties);
     }
@@ -25,6 +26,17 @@ export class License implements LicenseInterface, SerializableInterface {
      * A URL to the license used for the API. MUST be in the format of a URL.
      */
     public url?: string;
+
+    /**
+     * @inheritDoc
+     */
+    public cloneAndEdit<T>(callback: (object: T) => void): T {
+        const copy = require("deepcopy")(this);
+
+        callback(copy);
+
+        return copy;
+    }
 
     public serialize(): { [p: string]: any } {
         return this;

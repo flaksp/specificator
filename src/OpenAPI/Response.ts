@@ -3,6 +3,7 @@ import {Header} from "./Header";
 import {Link} from "./Link";
 import {MediaType} from "./MediaType";
 import {Reference} from "./Reference";
+import {SafeEditableInterface} from "./SafeEditableInterface";
 
 export interface ResponseInterface {
     content?: { [_: string]: MediaType; };
@@ -19,7 +20,7 @@ export interface ResponseInterface {
  *
  * @see https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#response-object
  */
-export class Response implements ResponseInterface, SerializableInterface {
+export class Response implements ResponseInterface, SerializableInterface, SafeEditableInterface {
     public constructor(properties: ResponseInterface) {
         Object.assign(this, properties);
     }
@@ -43,6 +44,17 @@ export class Response implements ResponseInterface, SerializableInterface {
      * A map of operations links that can be followed from the response. The key of the map is a short name for the link, following the naming constraints of the names for [Component Objects](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#componentsObject).
      */
     public links?: { [_: string]: string | Link | Reference; };
+
+    /**
+     * @inheritDoc
+     */
+    public cloneAndEdit<T>(callback: (object: T) => void): T {
+        const copy = require("deepcopy")(this);
+
+        callback(copy);
+
+        return copy;
+    }
 
     public serialize(): { [p: string]: any } {
         return this;

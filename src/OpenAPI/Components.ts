@@ -6,6 +6,7 @@ import {Link} from "./Link";
 import {Parameter} from "./Parameter/Parameter";
 import {RequestBody} from "./RequestBody";
 import {Response} from "./Response";
+import {SafeEditableInterface} from "./SafeEditableInterface";
 import {Schema} from "./Schema/Schema";
 import {SecurityScheme} from "./SecurityScheme/SecurityScheme";
 
@@ -34,7 +35,7 @@ export interface ComponentsInterface {
  *
  * @see https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#components-object
  */
-export class Components implements ComponentsInterface, SerializableInterface {
+export class Components implements ComponentsInterface, SerializableInterface, SafeEditableInterface {
     public constructor(properties: ComponentsInterface) {
         Object.assign(this, properties);
     }
@@ -83,6 +84,17 @@ export class Components implements ComponentsInterface, SerializableInterface {
      * An object to hold reusable [Security Scheme Objects](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#securitySchemeObject).
      */
     public securitySchemes?: { [p: string]: SecurityScheme };
+
+    /**
+     * @inheritDoc
+     */
+    public cloneAndEdit<T>(callback: (object: T) => void): T {
+        const copy = require("deepcopy")(this);
+
+        callback(copy);
+
+        return copy;
+    }
 
     public serialize(): { [p: string]: any } {
         return this;

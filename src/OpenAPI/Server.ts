@@ -1,4 +1,5 @@
 import {SerializableInterface} from "../Serializer/SerializableInterface";
+import {SafeEditableInterface} from "./SafeEditableInterface";
 import {ServerVariable} from "./ServerVariable";
 
 export interface ServerInterface {
@@ -14,7 +15,7 @@ export interface ServerInterface {
  *
  * @see https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#server-object
  */
-export class Server implements ServerInterface, SerializableInterface {
+export class Server implements ServerInterface, SerializableInterface, SafeEditableInterface {
     constructor(properties: ServerInterface) {
         Object.assign(this, properties);
     }
@@ -33,6 +34,17 @@ export class Server implements ServerInterface, SerializableInterface {
      * A map between a variable name and its value. The value is used for substitution in the server's URL template.
      */
     public variables?: { [_: string]: ServerVariable; };
+
+    /**
+     * @inheritDoc
+     */
+    public cloneAndEdit<T>(callback: (object: T) => void): T {
+        const copy = require("deepcopy")(this);
+
+        callback(copy);
+
+        return copy;
+    }
 
     public serialize(): { [p: string]: any } {
         return this;

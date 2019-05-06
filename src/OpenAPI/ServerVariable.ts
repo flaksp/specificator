@@ -1,4 +1,5 @@
 import {SerializableInterface} from "../Serializer/SerializableInterface";
+import {SafeEditableInterface} from "./SafeEditableInterface";
 
 export interface ServerVariableInterface {
     default: string;
@@ -13,7 +14,7 @@ export interface ServerVariableInterface {
  *
  * @see https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#server-variable-object
  */
-export class ServerVariable implements ServerVariableInterface, SerializableInterface {
+export class ServerVariable implements ServerVariableInterface, SerializableInterface, SafeEditableInterface {
     constructor(properties: ServerVariableInterface) {
         Object.assign(this, properties);
     }
@@ -32,6 +33,17 @@ export class ServerVariable implements ServerVariableInterface, SerializableInte
      * An enumeration of string values to be used if the substitution options are from a limited set.
      */
     public enum?: string[];
+
+    /**
+     * @inheritDoc
+     */
+    public cloneAndEdit<T>(callback: (object: T) => void): T {
+        const copy = require("deepcopy")(this);
+
+        callback(copy);
+
+        return copy;
+    }
 
     public serialize(): { [p: string]: any } {
         return this;

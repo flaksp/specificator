@@ -1,5 +1,6 @@
 import {SerializableInterface} from "../Serializer/SerializableInterface";
 import {MediaType} from "./MediaType";
+import {SafeEditableInterface} from "./SafeEditableInterface";
 
 export interface RequestBodyInterface {
     content: { [_: string]: MediaType; };
@@ -14,7 +15,7 @@ export interface RequestBodyInterface {
  *
  * @see https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#request-body-object
  */
-export class RequestBody implements RequestBodyInterface, SerializableInterface {
+export class RequestBody implements RequestBodyInterface, SerializableInterface, SafeEditableInterface {
     public constructor(properties: RequestBodyInterface) {
         Object.assign(this, properties);
     }
@@ -33,6 +34,17 @@ export class RequestBody implements RequestBodyInterface, SerializableInterface 
      * Determines if the request body is required in the request. Defaults to `false`.
      */
     public required: boolean;
+
+    /**
+     * @inheritDoc
+     */
+    public cloneAndEdit<T>(callback: (object: T) => void): T {
+        const copy = require("deepcopy")(this);
+
+        callback(copy);
+
+        return copy;
+    }
 
     public serialize(): { [p: string]: any } {
         return this;

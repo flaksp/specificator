@@ -1,4 +1,5 @@
 import {SerializableInterface} from "../Serializer/SerializableInterface";
+import {SafeEditableInterface} from "./SafeEditableInterface";
 
 export interface ExternalDocumentationInterface {
     description?: string;
@@ -11,7 +12,7 @@ export interface ExternalDocumentationInterface {
  *
  * @see https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#external-documentation-object
  */
-export class ExternalDocumentation implements ExternalDocumentationInterface, SerializableInterface {
+export class ExternalDocumentation implements ExternalDocumentationInterface, SerializableInterface, SafeEditableInterface {
     constructor(properties: ExternalDocumentationInterface) {
         Object.assign(this, properties);
     }
@@ -25,6 +26,17 @@ export class ExternalDocumentation implements ExternalDocumentationInterface, Se
      * **REQUIRED**. The URL for the target documentation. Value MUST be in the format of a URL.
      */
     public url: string;
+
+    /**
+     * @inheritDoc
+     */
+    public cloneAndEdit<T>(callback: (object: T) => void): T {
+        const copy = require("deepcopy")(this);
+
+        callback(copy);
+
+        return copy;
+    }
 
     public serialize(): { [p: string]: any } {
         return this;

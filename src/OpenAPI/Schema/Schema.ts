@@ -1,6 +1,7 @@
 import {SerializableInterface} from "../../Serializer/SerializableInterface";
 import {ExternalDocumentation} from "../ExternalDocumentation";
 import {Reference} from "../Reference";
+import {SafeEditableInterface} from "../SafeEditableInterface";
 
 export interface SchemaInterface {
     anyOf?: Array<Schema|Reference>;
@@ -68,7 +69,7 @@ export interface SchemaInterface {
  *
  * @see https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#schemaObject
  */
-export abstract class Schema implements SchemaInterface, SerializableInterface {
+export abstract class Schema implements SchemaInterface, SerializableInterface, SafeEditableInterface {
     protected constructor(properties: SchemaInterface) {
         Object.assign(this, properties);
     }
@@ -115,6 +116,17 @@ export abstract class Schema implements SchemaInterface, SerializableInterface {
      * Relevant only for Schema `"properties"` definitions. Declares the property as "write only". Therefore, it MAY be sent as part of a request but SHOULD NOT be sent as part of the response. If the property is marked as `writeOnly` being `true` and is in the `required` list, the `required` will take effect on the request only. A property MUST NOT be marked as both `readOnly` and `writeOnly` being `true`. Default value is `false`.
      */
     public writeOnly: boolean;
+
+    /**
+     * @inheritDoc
+     */
+    public cloneAndEdit<T>(callback: (object: T) => void): T {
+        const copy = require("deepcopy")(this);
+
+        callback(copy);
+
+        return copy;
+    }
 
     public abstract serialize(): { [p: string]: any };
 }

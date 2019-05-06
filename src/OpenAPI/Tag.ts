@@ -1,5 +1,6 @@
 import {SerializableInterface} from "../Serializer/SerializableInterface";
 import {ExternalDocumentation} from "./ExternalDocumentation";
+import {SafeEditableInterface} from "./SafeEditableInterface";
 
 export interface TagInterface {
     description?: string;
@@ -14,7 +15,7 @@ export interface TagInterface {
  *
  * @see https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#tag-object
  */
-export class Tag implements TagInterface, SerializableInterface {
+export class Tag implements TagInterface, SerializableInterface, SafeEditableInterface {
     constructor(properties: TagInterface) {
         Object.assign(this, properties);
     }
@@ -33,6 +34,17 @@ export class Tag implements TagInterface, SerializableInterface {
      * **REQUIRED**. The name of the tag.
      */
     public name: string;
+
+    /**
+     * @inheritDoc
+     */
+    public cloneAndEdit<T>(callback: (object: T) => void): T {
+        const copy = require("deepcopy")(this);
+
+        callback(copy);
+
+        return copy;
+    }
 
     public serialize(): { [p: string]: any } {
         return this;

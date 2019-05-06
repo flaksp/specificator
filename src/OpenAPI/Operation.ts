@@ -5,6 +5,7 @@ import {Parameter} from "./Parameter/Parameter";
 import {Reference} from "./Reference";
 import {RequestBody} from "./RequestBody";
 import {ResponsesInterface} from "./Responses";
+import {SafeEditableInterface} from "./SafeEditableInterface";
 import {SecurityRequirementInterface} from "./SecurityRequirement";
 import {Server} from "./Server";
 
@@ -39,7 +40,7 @@ export interface OperationInterface {
  *
  * @see https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#operation-object
  */
-export class Operation implements OperationInterface, SerializableInterface {
+export class Operation implements OperationInterface, SerializableInterface, SafeEditableInterface {
     public constructor(properties: OperationInterface) {
         Object.assign(this, properties);
     }
@@ -103,6 +104,17 @@ export class Operation implements OperationInterface, SerializableInterface {
      * A list of tags for API documentation control. Tags can be used for logical grouping of operations by resources or any other qualifier.
      */
     public tags?: string[];
+
+    /**
+     * @inheritDoc
+     */
+    public cloneAndEdit<T>(callback: (object: T) => void): T {
+        const copy = require("deepcopy")(this);
+
+        callback(copy);
+
+        return copy;
+    }
 
     public serialize(): { [p: string]: any } {
         return this;

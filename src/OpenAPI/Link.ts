@@ -1,4 +1,5 @@
 import {SerializableInterface} from "../Serializer/SerializableInterface";
+import {SafeEditableInterface} from "./SafeEditableInterface";
 import {Server} from "./Server";
 
 export interface LinkInterface {
@@ -24,7 +25,7 @@ export interface LinkInterface {
  *
  * @see https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#link-object
  */
-export class Link implements LinkInterface, SerializableInterface {
+export class Link implements LinkInterface, SerializableInterface, SafeEditableInterface {
     constructor(properties: LinkInterface) {
         Object.assign(this, properties);
     }
@@ -58,6 +59,17 @@ export class Link implements LinkInterface, SerializableInterface {
      * A server object to be used by the target operation.
      */
     public server?: Server;
+
+    /**
+     * @inheritDoc
+     */
+    public cloneAndEdit<T>(callback: (object: T) => void): T {
+        const copy = require("deepcopy")(this);
+
+        callback(copy);
+
+        return copy;
+    }
 
     public serialize(): { [p: string]: any } {
         return this;

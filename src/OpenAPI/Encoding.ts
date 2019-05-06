@@ -1,6 +1,7 @@
 import {SerializableInterface} from "../Serializer/SerializableInterface";
 import {Header} from "./Header";
 import {Reference} from "./Reference";
+import {SafeEditableInterface} from "./SafeEditableInterface";
 
 export interface EncodingInterface {
     allowReserved: boolean;
@@ -15,7 +16,7 @@ export interface EncodingInterface {
  *
  * @see https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#encoding-object
  */
-export class Encoding implements EncodingInterface, SerializableInterface {
+export class Encoding implements EncodingInterface, SerializableInterface, SafeEditableInterface {
     public constructor(properties: EncodingInterface) {
         Object.assign(this, properties);
     }
@@ -34,6 +35,17 @@ export class Encoding implements EncodingInterface, SerializableInterface {
      * A map allowing additional information to be provided as headers, for example `Content-Disposition`. `Content-Type` is described separately and SHALL be ignored in this section. This property SHALL be ignored if the request body media type is not a `multipart`.
      */
     public headers?: { [_: string]: string | Header | Reference; };
+
+    /**
+     * @inheritDoc
+     */
+    public cloneAndEdit<T>(callback: (object: T) => void): T {
+        const copy = require("deepcopy")(this);
+
+        callback(copy);
+
+        return copy;
+    }
 
     public serialize(): { [p: string]: any } {
         return this;

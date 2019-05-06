@@ -1,4 +1,5 @@
 import {SerializableInterface} from "../Serializer/SerializableInterface";
+import {SafeEditableInterface} from "./SafeEditableInterface";
 
 export interface DiscriminatorInterface {
     mapping?: { [discriminatorValue: string]: string; };
@@ -13,7 +14,7 @@ export interface DiscriminatorInterface {
  *
  * @see https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#discriminator-object
  */
-export class Discriminator implements DiscriminatorInterface, SerializableInterface {
+export class Discriminator implements DiscriminatorInterface, SerializableInterface, SafeEditableInterface {
     public constructor(properties: DiscriminatorInterface) {
         Object.assign(this, properties);
     }
@@ -27,6 +28,17 @@ export class Discriminator implements DiscriminatorInterface, SerializableInterf
      * **REQUIRED**. The name of the property in the payload that will hold the discriminator value.
      */
     public propertyName: string;
+
+    /**
+     * @inheritDoc
+     */
+    public cloneAndEdit<T>(callback: (object: T) => void): T {
+        const copy = require("deepcopy")(this);
+
+        callback(copy);
+
+        return copy;
+    }
 
     public serialize(): { [p: string]: any } {
         return this;

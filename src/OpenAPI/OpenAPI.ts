@@ -3,6 +3,7 @@ import {Components} from "./Components";
 import {ExternalDocumentation} from "./ExternalDocumentation";
 import {Info} from "./Info";
 import {PathsInterface} from "./Paths";
+import {SafeEditableInterface} from "./SafeEditableInterface";
 import {SecurityRequirementInterface} from "./SecurityRequirement";
 import {Server} from "./Server";
 import {Tag} from "./Tag";
@@ -28,7 +29,7 @@ export interface OpenAPIInterface {
  *
  * @see https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#openapi-object
  */
-export class OpenAPI implements OpenAPIInterface, SerializableInterface {
+export class OpenAPI implements OpenAPIInterface, SerializableInterface, SafeEditableInterface {
 
     constructor(properties: OpenAPIInterface) {
         Object.assign(this, properties);
@@ -73,6 +74,17 @@ export class OpenAPI implements OpenAPIInterface, SerializableInterface {
      * A list of tags used by the specification with additional metadata. The order of the tags can be used to reflect on their order by the parsing tools. Not all tags that are used by the [Operation Object](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#operationObject) must be declared. The tags that are not declared MAY be organized randomly or based on the tools' logic. Each tag name in the list MUST be unique.
      */
     public tags?: Tag[];
+
+    /**
+     * @inheritDoc
+     */
+    public cloneAndEdit<T>(callback: (object: T) => void): T {
+        const copy = require("deepcopy")(this);
+
+        callback(copy);
+
+        return copy;
+    }
 
     public serialize(): { [p: string]: any } {
         return this;

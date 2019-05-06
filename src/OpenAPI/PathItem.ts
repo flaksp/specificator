@@ -2,6 +2,7 @@ import {SerializableInterface} from "../Serializer/SerializableInterface";
 import {Operation} from "./Operation";
 import {Parameter} from "./Parameter/Parameter";
 import {Reference} from "./Reference";
+import {SafeEditableInterface} from "./SafeEditableInterface";
 import {Server} from "./Server";
 
 export interface PathItemInterface {
@@ -37,7 +38,7 @@ export interface PathItemInterface {
  *
  * @see https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#path-item-object
  */
-export class PathItem implements PathItemInterface, SerializableInterface {
+export class PathItem implements PathItemInterface, SerializableInterface, SafeEditableInterface {
     public constructor(properties: PathItemInterface) {
         Object.assign(this, properties);
     }
@@ -106,6 +107,17 @@ export class PathItem implements PathItemInterface, SerializableInterface {
      * A definition of a TRACE operation on this path.
      */
     public trace?: Operation;
+
+    /**
+     * @inheritDoc
+     */
+    public cloneAndEdit<T>(callback: (object: T) => void): T {
+        const copy = require("deepcopy")(this);
+
+        callback(copy);
+
+        return copy;
+    }
 
     public serialize(): { [p: string]: any } {
         return this;

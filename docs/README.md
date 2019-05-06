@@ -21,4 +21,5 @@ To take all benefits from Specificator, please read all topics (you may read the
 * [Using serializer](https://github.com/neluzhin/specificator-serializer)
 * [Custom OpenAPI objects](custom-openapi-objects.md) (also known as [specification extensions](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#specificationExtensions))
 * [Reusable schemas](reusable-schemas.md)
+* [Safe objects modifications](safe-objects-modifications.md)
 * [Recommendations](recommendations.md)

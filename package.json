@@ -4,8 +4,11 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "sideEffects": false,
-  "dependencies": {},
+  "dependencies": {
+    "deepcopy": "^2.0.0"
+  },
   "devDependencies": {
+    "@types/node": "^12.0.0",
     "markdownlint-cli": "0.15.0",
     "npm-publish-git-tag": "3.0.4",
     "tslint": "5.16.0",

@@ -2,6 +2,7 @@ import {SerializableInterface} from "../Serializer/SerializableInterface";
 import {Encoding} from "./Encoding";
 import {Example} from "./Example";
 import {Reference} from "./Reference";
+import {SafeEditableInterface} from "./SafeEditableInterface";
 import {Schema} from "./Schema/Schema";
 
 export interface MediaTypeInterface {
@@ -19,7 +20,7 @@ export interface MediaTypeInterface {
  *
  * @see https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#media-type-object
  */
-export class MediaType implements MediaTypeInterface, SerializableInterface {
+export class MediaType implements MediaTypeInterface, SerializableInterface, SafeEditableInterface {
     public constructor(properties: MediaTypeInterface) {
         Object.assign(this, properties);
     }
@@ -43,6 +44,17 @@ export class MediaType implements MediaTypeInterface, SerializableInterface {
      * The schema defining the content of the request, response, or parameter.
      */
     public schema?: Schema | Reference;
+
+    /**
+     * @inheritDoc
+     */
+    public cloneAndEdit<T>(callback: (object: T) => void): T {
+        const copy = require("deepcopy")(this);
+
+        callback(copy);
+
+        return copy;
+    }
 
     public serialize(): { [p: string]: any } {
         return this;

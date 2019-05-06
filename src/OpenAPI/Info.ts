@@ -1,6 +1,7 @@
 import {SerializableInterface} from "../Serializer/SerializableInterface";
 import {Contact} from "./Contact";
 import {License} from "./License";
+import {SafeEditableInterface} from "./SafeEditableInterface";
 
 export interface InfoInterface {
     contact?: Contact;
@@ -21,7 +22,7 @@ export interface InfoInterface {
  *
  * @see https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#info-object
  */
-export class Info implements InfoInterface, SerializableInterface {
+export class Info implements InfoInterface, SerializableInterface, SafeEditableInterface {
     constructor(properties: InfoInterface) {
         Object.assign(this, properties);
     }
@@ -55,6 +56,17 @@ export class Info implements InfoInterface, SerializableInterface {
      * **REQUIRED**. The version of the OpenAPI document (which is distinct from the [OpenAPI Specification version](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#oasVersion) or the API implementation version).
      */
     public version: string;
+
+    /**
+     * @inheritDoc
+     */
+    public cloneAndEdit<T>(callback: (object: T) => void): T {
+        const copy = require("deepcopy")(this);
+
+        callback(copy);
+
+        return copy;
+    }
 
     public serialize(): { [p: string]: any } {
         return this;

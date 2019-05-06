@@ -2,6 +2,7 @@ import {SerializableInterface} from "../../Serializer/SerializableInterface";
 import {Example} from "../Example";
 import {MediaType} from "../MediaType";
 import {Reference} from "../Reference";
+import {SafeEditableInterface} from "../SafeEditableInterface";
 import {Schema} from "../Schema/Schema";
 
 export interface ParameterInterface {
@@ -35,7 +36,7 @@ export interface ParameterInterface {
  *
  * @see https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#parameter-object
  */
-export abstract class Parameter implements ParameterInterface, SerializableInterface {
+export abstract class Parameter implements ParameterInterface, SerializableInterface, SafeEditableInterface {
     protected constructor(properties: ParameterInterface) {
         Object.assign(this, properties);
     }
@@ -88,6 +89,17 @@ export abstract class Parameter implements ParameterInterface, SerializableInter
      * The schema defining the type used for the parameter.
      */
     public schema?: Schema | Reference;
+
+    /**
+     * @inheritDoc
+     */
+    public cloneAndEdit<T>(callback: (object: T) => void): T {
+        const copy = require("deepcopy")(this);
+
+        callback(copy);
+
+        return copy;
+    }
 
     public abstract serialize(): { [p: string]: any };
 }

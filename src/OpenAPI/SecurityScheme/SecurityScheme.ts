@@ -1,4 +1,5 @@
 import {SerializableInterface} from "../../Serializer/SerializableInterface";
+import {SafeEditableInterface} from "../SafeEditableInterface";
 
 export interface SecuritySchemeInterface {
     description?: string;
@@ -9,7 +10,7 @@ export interface SecuritySchemeInterface {
  *
  * @see https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#security-scheme-object
  */
-export abstract class SecurityScheme implements SecuritySchemeInterface, SerializableInterface {
+export abstract class SecurityScheme implements SecuritySchemeInterface, SerializableInterface, SafeEditableInterface {
     protected constructor(properties: SecuritySchemeInterface) {
         Object.assign(this, properties);
     }
@@ -23,6 +24,17 @@ export abstract class SecurityScheme implements SecuritySchemeInterface, Seriali
      * **REQUIRED**. The type of the security scheme. Valid values are `"apiKey"`, `"http"`, `"oauth2"`, `"openIdConnect"`.
      */
     public abstract type: string;
+
+    /**
+     * @inheritDoc
+     */
+    public cloneAndEdit<T>(callback: (object: T) => void): T {
+        const copy = require("deepcopy")(this);
+
+        callback(copy);
+
+        return copy;
+    }
 
     public abstract serialize(): { [p: string]: any };
 }
