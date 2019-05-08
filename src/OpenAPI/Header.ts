@@ -8,7 +8,7 @@ import {Schema} from "./Schema/Schema";
 export interface HeaderInterface {
     content?: { [contentType: string]: string | MediaType; };
 
-    deprecated: boolean;
+    deprecated?: boolean;
 
     description?: string;
 
@@ -16,7 +16,7 @@ export interface HeaderInterface {
 
     examples?: { [exampleName: string]: string | Example | Reference; };
 
-    required: boolean;
+    required?: boolean;
 
     schema?: Schema | Reference;
 }
@@ -43,7 +43,7 @@ export class Header implements HeaderInterface, SerializableInterface, SafeEdita
     /**
      * Specifies that a parameter is deprecated and SHOULD be transitioned out of usage. Default value is `false`.
      */
-    public deprecated: boolean;
+    public deprecated?: boolean;
 
     /**
      * A brief description of the parameter. This could contain examples of use. [CommonMark syntax](http://spec.commonmark.org/) MAY be used for rich text representation.
@@ -63,7 +63,7 @@ export class Header implements HeaderInterface, SerializableInterface, SafeEdita
     /**
      * Determines whether this parameter is mandatory. If the [parameter location](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#parameterIn) is "path", this property is **REQUIRED** and its value MUST be `true`. Otherwise, the property MAY be included and its default value is `false`.
      */
-    public required: boolean;
+    public required?: boolean;
 
     /**
      * The schema defining the type used for the parameter.
