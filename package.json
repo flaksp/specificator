@@ -9,7 +9,7 @@
   },
   "devDependencies": {
     "@types/node": "12.0.0",
-    "markdownlint-cli": "0.15.0",
+    "markdownlint-cli": "0.16.0",
     "npm-publish-git-tag": "3.0.4",
     "tslint": "5.16.0",
     "typescript": "3.4.5"
