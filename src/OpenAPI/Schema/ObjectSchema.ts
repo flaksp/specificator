@@ -55,6 +55,32 @@ export class ObjectSchema extends Schema implements ObjectSchemaInterface, Seria
     public readonly type: string = "object";
 
     public serialize(): { [p: string]: any } {
-        return this;
+        const result = super.serialize();
+
+        if (this.additionalProperties !== undefined) {
+            result.additionalProperties = this.additionalProperties;
+        }
+
+        if (this.discriminator !== undefined) {
+            result.discriminator = this.discriminator;
+        }
+
+        if (this.maxProperties !== undefined) {
+            result.maxProperties = this.maxProperties;
+        }
+
+        if (this.minProperties !== undefined) {
+            result.minProperties = this.minProperties;
+        }
+
+        if (this.properties !== undefined) {
+            result.properties = this.properties;
+        }
+
+        if (this.required !== undefined) {
+            result.required = this.required;
+        }
+
+        return result;
     }
 }

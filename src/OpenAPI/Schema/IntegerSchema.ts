@@ -61,6 +61,40 @@ export class IntegerSchema extends Schema implements IntegerSchemaInterface, Ser
     public readonly type: string = "integer";
 
     public serialize(): { [p: string]: any } {
-        return this;
+        const result = super.serialize();
+
+        if (this.default !== undefined) {
+            result.default = this.default;
+        }
+
+        if (this.example !== undefined) {
+            result.example = this.example;
+        }
+
+        if (this.exclusiveMaximum !== undefined) {
+            result.exclusiveMaximum = this.exclusiveMaximum;
+        }
+
+        if (this.exclusiveMinimum !== undefined) {
+            result.exclusiveMinimum = this.exclusiveMinimum;
+        }
+
+        if (this.format !== undefined) {
+            result.format = this.format;
+        }
+
+        if (this.maximum !== undefined) {
+            result.maximum = this.maximum;
+        }
+
+        if (this.minimum !== undefined) {
+            result.minimum = this.minimum;
+        }
+
+        if (this.multipleOf !== undefined) {
+            result.multipleOf = this.multipleOf;
+        }
+
+        return result;
     }
 }

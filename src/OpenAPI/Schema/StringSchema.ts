@@ -60,6 +60,36 @@ export class StringSchema extends Schema implements StringSchemaInterface, Seria
     public readonly type: string = "string";
 
     public serialize(): { [p: string]: any } {
-        return this;
+        const result = super.serialize();
+
+        if (this.default !== undefined) {
+            result.default = this.default;
+        }
+
+        if (this.enum !== undefined) {
+            result.enum = this.enum;
+        }
+
+        if (this.example !== undefined) {
+            result.example = this.example;
+        }
+
+        if (this.format !== undefined) {
+            result.format = this.format;
+        }
+
+        if (this.maxLength !== undefined) {
+            result.maxLength = this.maxLength;
+        }
+
+        if (this.minLength !== undefined) {
+            result.minLength = this.minLength;
+        }
+
+        if (this.pattern !== undefined) {
+            result.pattern = this.pattern;
+        }
+
+        return result;
     }
 }

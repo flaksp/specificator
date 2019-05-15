@@ -40,6 +40,24 @@ export class ArraySchema extends Schema implements ArraySchemaInterface, Seriali
     public uniqueItems?: boolean;
 
     public serialize(): { [p: string]: any } {
-        return this;
+        const result = super.serialize();
+
+        if (this.items !== undefined) {
+            result.items = this.items;
+        }
+
+        if (this.maxItems !== undefined) {
+            result.maxItems = this.maxItems;
+        }
+
+        if (this.minItems !== undefined) {
+            result.minItems = this.minItems;
+        }
+
+        if (this.uniqueItems !== undefined) {
+            result.uniqueItems = this.uniqueItems;
+        }
+
+        return result;
     }
 }

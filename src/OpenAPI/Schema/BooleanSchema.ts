@@ -34,6 +34,16 @@ export class BooleanSchema extends Schema implements BooleanSchemaInterface, Ser
     public readonly type: string = "boolean";
 
     public serialize(): { [p: string]: any } {
-        return this;
+        const result = super.serialize();
+
+        if (this.default !== undefined) {
+            result.default = this.default;
+        }
+
+        if (this.example !== undefined) {
+            result.example = this.example;
+        }
+
+        return result;
     }
 }
