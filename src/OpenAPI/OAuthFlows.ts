@@ -56,6 +56,9 @@ export class OAuthFlows implements OAuthFlowsInterface, SerializableInterface, S
         return copy;
     }
 
+    /**
+     * @inheritDoc
+     */
     public serialize(): { [p: string]: any } {
         const result = {} as { [p: string]: any };
 

@@ -56,6 +56,9 @@ export class MediaType implements MediaTypeInterface, SerializableInterface, Saf
         return copy;
     }
 
+    /**
+     * @inheritDoc
+     */
     public serialize(): { [p: string]: any } {
         const result = {} as { [p: string]: any };
 

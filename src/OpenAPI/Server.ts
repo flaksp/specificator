@@ -46,6 +46,9 @@ export class Server implements ServerInterface, SerializableInterface, SafeEdita
         return copy;
     }
 
+    /**
+     * @inheritDoc
+     */
     public serialize(): { [p: string]: any } {
         const result = {} as { [p: string]: any };
 

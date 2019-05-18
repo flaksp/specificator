@@ -96,6 +96,9 @@ export class Components implements ComponentsInterface, SerializableInterface, S
         return copy;
     }
 
+    /**
+     * @inheritDoc
+     */
     public serialize(): { [p: string]: any } {
         const result = {} as { [p: string]: any };
 

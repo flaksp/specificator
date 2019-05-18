@@ -20,6 +20,9 @@ export class CookieParameter extends Parameter implements CookieParameterInterfa
      */
     public readonly in: string = "cookie";
 
+    /**
+     * @inheritDoc
+     */
     public serialize(): { [p: string]: any } {
         const result = super.serialize();
 

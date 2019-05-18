@@ -21,6 +21,9 @@ export class ClientCredentialsOAuthFlow extends OAuthFlow implements ClientCrede
      */
     public tokenUrl: string;
 
+    /**
+     * @inheritDoc
+     */
     public serialize(): { [p: string]: any } {
         const result = super.serialize();
 

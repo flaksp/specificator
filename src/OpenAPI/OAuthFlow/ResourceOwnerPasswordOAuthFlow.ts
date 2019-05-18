@@ -21,6 +21,9 @@ export class ResourceOwnerPasswordOAuthFlow extends OAuthFlow implements Resourc
      */
     public tokenUrl: string;
 
+    /**
+     * @inheritDoc
+     */
     public serialize(): { [p: string]: any } {
         const result = super.serialize();
 

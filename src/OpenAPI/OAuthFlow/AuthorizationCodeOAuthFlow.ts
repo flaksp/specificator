@@ -28,6 +28,9 @@ export class AuthorizationCodeOAuthFlow extends OAuthFlow implements Authorizati
      */
     public tokenUrl: string;
 
+    /**
+     * @inheritDoc
+     */
     public serialize(): { [p: string]: any } {
         const result = super.serialize();
 

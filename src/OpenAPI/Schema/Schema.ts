@@ -128,6 +128,9 @@ export abstract class Schema implements SchemaInterface, SerializableInterface, 
         return copy;
     }
 
+    /**
+     * @inheritDoc
+     */
     public serialize(): { [p: string]: any } {
         const result = {} as { [p: string]: any };
 

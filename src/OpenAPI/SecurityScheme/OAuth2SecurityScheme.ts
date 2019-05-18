@@ -27,6 +27,9 @@ export class OAuth2SecurityScheme extends SecurityScheme implements OAuth2Securi
      */
     public readonly type: string = "oauth2";
 
+    /**
+     * @inheritDoc
+     */
     public serialize(): { [p: string]: any } {
         const result = super.serialize();
 

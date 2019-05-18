@@ -81,6 +81,9 @@ export class Header implements HeaderInterface, SerializableInterface, SafeEdita
         return copy;
     }
 
+    /**
+     * @inheritDoc
+     */
     public serialize(): { [p: string]: any } {
         const result = {} as { [p: string]: any };
 

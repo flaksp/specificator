@@ -33,6 +33,9 @@ export class HttpSecurityScheme extends SecurityScheme implements HttpSecuritySc
      */
     public readonly type: string = "http";
 
+    /**
+     * @inheritDoc
+     */
     public serialize(): { [p: string]: any } {
         const result = super.serialize();
 

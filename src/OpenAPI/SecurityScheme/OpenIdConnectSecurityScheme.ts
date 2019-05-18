@@ -26,6 +26,9 @@ export class OpenIdConnectSecurityScheme extends SecurityScheme implements OpenI
      */
     public readonly type: string = "openIdConnect";
 
+    /**
+     * @inheritDoc
+     */
     public serialize(): { [p: string]: any } {
         const result = super.serialize();
 

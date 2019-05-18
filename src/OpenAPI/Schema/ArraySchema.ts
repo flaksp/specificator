@@ -39,6 +39,9 @@ export class ArraySchema extends Schema implements ArraySchemaInterface, Seriali
 
     public uniqueItems?: boolean;
 
+    /**
+     * @inheritDoc
+     */
     public serialize(): { [p: string]: any } {
         const result = super.serialize();
 

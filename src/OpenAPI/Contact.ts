@@ -45,6 +45,9 @@ export class Contact implements ContactInterface, SerializableInterface, SafeEdi
         return copy;
     }
 
+    /**
+     * @inheritDoc
+     */
     public serialize(): { [p: string]: any } {
         const result = {} as { [p: string]: any };
 

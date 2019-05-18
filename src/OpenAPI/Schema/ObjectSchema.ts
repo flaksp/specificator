@@ -54,6 +54,9 @@ export class ObjectSchema extends Schema implements ObjectSchemaInterface, Seria
      */
     public readonly type: string = "object";
 
+    /**
+     * @inheritDoc
+     */
     public serialize(): { [p: string]: any } {
         const result = super.serialize();
 

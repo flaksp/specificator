@@ -27,6 +27,9 @@ export class PathParameter extends Parameter implements PathParameterInterface, 
      */
     public readonly required: boolean = true;
 
+    /**
+     * @inheritDoc
+     */
     public serialize(): { [p: string]: any } {
         const result = super.serialize();
 

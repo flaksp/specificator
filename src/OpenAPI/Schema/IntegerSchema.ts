@@ -60,6 +60,9 @@ export class IntegerSchema extends Schema implements IntegerSchemaInterface, Ser
      */
     public readonly type: string = "integer";
 
+    /**
+     * @inheritDoc
+     */
     public serialize(): { [p: string]: any } {
         const result = super.serialize();
 

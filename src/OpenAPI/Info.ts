@@ -68,6 +68,9 @@ export class Info implements InfoInterface, SerializableInterface, SafeEditableI
         return copy;
     }
 
+    /**
+     * @inheritDoc
+     */
     public serialize(): { [p: string]: any } {
         const result = {} as { [p: string]: any };
 

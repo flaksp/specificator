@@ -27,6 +27,9 @@ export class QueryParameter extends Parameter implements QueryParameterInterface
      */
     public readonly in: string = "query";
 
+    /**
+     * @inheritDoc
+     */
     public serialize(): { [p: string]: any } {
         const result = super.serialize();
 

@@ -59,6 +59,9 @@ export class StringSchema extends Schema implements StringSchemaInterface, Seria
      */
     public readonly type: string = "string";
 
+    /**
+     * @inheritDoc
+     */
     public serialize(): { [p: string]: any } {
         const result = super.serialize();
 

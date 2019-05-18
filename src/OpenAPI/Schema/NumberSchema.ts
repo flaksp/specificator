@@ -60,6 +60,9 @@ export class NumberSchema extends Schema implements NumberSchemaInterface, Seria
      */
     public readonly type: string = "number";
 
+    /**
+     * @inheritDoc
+     */
     public serialize(): { [p: string]: any } {
         const result = super.serialize();
 

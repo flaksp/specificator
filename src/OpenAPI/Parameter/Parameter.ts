@@ -101,6 +101,9 @@ export abstract class Parameter implements ParameterInterface, SerializableInter
         return copy;
     }
 
+    /**
+     * @inheritDoc
+     */
     public serialize(): { [p: string]: any } {
         const result = {} as { [p: string]: any };
 

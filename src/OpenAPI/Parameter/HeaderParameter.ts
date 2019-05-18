@@ -20,6 +20,9 @@ export class HeaderParameter extends Parameter implements HeaderParameterInterfa
      */
     public readonly in: string = "header";
 
+    /**
+     * @inheritDoc
+     */
     public serialize(): { [p: string]: any } {
         const result = super.serialize();
 

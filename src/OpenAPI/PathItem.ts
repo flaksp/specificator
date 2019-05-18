@@ -119,6 +119,9 @@ export class PathItem implements PathItemInterface, SerializableInterface, SafeE
         return copy;
     }
 
+    /**
+     * @inheritDoc
+     */
     public serialize(): { [p: string]: any } {
         const result = {} as { [p: string]: any };
 
