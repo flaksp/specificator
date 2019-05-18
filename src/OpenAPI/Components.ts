@@ -97,6 +97,44 @@ export class Components implements ComponentsInterface, SerializableInterface, S
     }
 
     public serialize(): { [p: string]: any } {
-        return this;
+        const result = {} as { [p: string]: any };
+
+        if (this.callbacks !== undefined) {
+            result.callbacks = this.callbacks;
+        }
+
+        if (this.examples !== undefined) {
+            result.examples = this.examples;
+        }
+
+        if (this.headers !== undefined) {
+            result.headers = this.headers;
+        }
+
+        if (this.links !== undefined) {
+            result.links = this.links;
+        }
+
+        if (this.parameters !== undefined) {
+            result.parameters = this.parameters;
+        }
+
+        if (this.requestBodies !== undefined) {
+            result.requestBodies = this.requestBodies;
+        }
+
+        if (this.responses !== undefined) {
+            result.responses = this.responses;
+        }
+
+        if (this.schemas !== undefined) {
+            result.schemas = this.schemas;
+        }
+
+        if (this.securitySchemes !== undefined) {
+            result.securitySchemes = this.securitySchemes;
+        }
+
+        return result;
     }
 }

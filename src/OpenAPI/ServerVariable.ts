@@ -46,6 +46,20 @@ export class ServerVariable implements ServerVariableInterface, SerializableInte
     }
 
     public serialize(): { [p: string]: any } {
-        return this;
+        const result = {} as { [p: string]: any };
+
+        if (this.default !== undefined) {
+            result.default = this.default;
+        }
+
+        if (this.description !== undefined) {
+            result.description = this.description;
+        }
+
+        if (this.enum !== undefined) {
+            result.enum = this.enum;
+        }
+
+        return result;
     }
 }

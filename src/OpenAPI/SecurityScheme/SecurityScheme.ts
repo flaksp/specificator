@@ -36,5 +36,17 @@ export abstract class SecurityScheme implements SecuritySchemeInterface, Seriali
         return copy;
     }
 
-    public abstract serialize(): { [p: string]: any };
+    public serialize(): { [p: string]: any } {
+        const result = {} as { [p: string]: any };
+
+        if (this.description !== undefined) {
+            result.description = this.description;
+        }
+
+        if (this.type !== undefined) {
+            result.type = this.type;
+        }
+
+        return result;
+    }
 }

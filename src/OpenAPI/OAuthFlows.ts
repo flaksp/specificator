@@ -57,6 +57,24 @@ export class OAuthFlows implements OAuthFlowsInterface, SerializableInterface, S
     }
 
     public serialize(): { [p: string]: any } {
-        return this;
+        const result = {} as { [p: string]: any };
+
+        if (this.authorizationCode !== undefined) {
+            result.authorizationCode = this.authorizationCode;
+        }
+
+        if (this.clientCredentials !== undefined) {
+            result.clientCredentials = this.clientCredentials;
+        }
+
+        if (this.implicit !== undefined) {
+            result.implicit = this.implicit;
+        }
+
+        if (this.password !== undefined) {
+            result.password = this.password;
+        }
+
+        return result;
     }
 }

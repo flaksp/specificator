@@ -21,6 +21,8 @@ export class HeaderParameter extends Parameter implements HeaderParameterInterfa
     public readonly in: string = "header";
 
     public serialize(): { [p: string]: any } {
-        return this;
+        const result = super.serialize();
+
+        return result;
     }
 }

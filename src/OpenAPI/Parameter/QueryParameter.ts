@@ -28,6 +28,12 @@ export class QueryParameter extends Parameter implements QueryParameterInterface
     public readonly in: string = "query";
 
     public serialize(): { [p: string]: any } {
-        return this;
+        const result = super.serialize();
+
+        if (this.allowReserved !== undefined) {
+            result.allowReserved = this.allowReserved;
+        }
+
+        return result;
     }
 }

@@ -36,6 +36,12 @@ export class Reference implements ReferenceInterface, SerializableInterface, Saf
     }
 
     public serialize(): { [p: string]: any } {
-        return this;
+        const result = {} as { [p: string]: any };
+
+        if (this.$ref !== undefined) {
+            result.$ref = this.$ref;
+        }
+
+        return result;
     }
 }

@@ -47,6 +47,20 @@ export class Tag implements TagInterface, SerializableInterface, SafeEditableInt
     }
 
     public serialize(): { [p: string]: any } {
-        return this;
+        const result = {} as { [p: string]: any };
+
+        if (this.description !== undefined) {
+            result.description = this.description;
+        }
+
+        if (this.externalDocs !== undefined) {
+            result.externalDocs = this.externalDocs;
+        }
+
+        if (this.name !== undefined) {
+            result.name = this.name;
+        }
+
+        return result;
     }
 }

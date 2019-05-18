@@ -21,6 +21,12 @@ export class ImplicitOAuthFlow extends OAuthFlow implements ImplicitOAuthFlowInt
     public authorizationUrl: string;
 
     public serialize(): { [p: string]: any } {
-        return this;
+        const result = super.serialize();
+
+        if (this.authorizationUrl !== undefined) {
+            result.authorizationUrl = this.authorizationUrl;
+        }
+
+        return result;
     }
 }

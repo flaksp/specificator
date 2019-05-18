@@ -46,6 +46,20 @@ export class Contact implements ContactInterface, SerializableInterface, SafeEdi
     }
 
     public serialize(): { [p: string]: any } {
-        return this;
+        const result = {} as { [p: string]: any };
+
+        if (this.email !== undefined) {
+            result.email = this.email;
+        }
+
+        if (this.name !== undefined) {
+            result.name = this.name;
+        }
+
+        if (this.url !== undefined) {
+            result.url = this.url;
+        }
+
+        return result;
     }
 }

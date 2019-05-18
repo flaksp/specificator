@@ -101,5 +101,45 @@ export abstract class Parameter implements ParameterInterface, SerializableInter
         return copy;
     }
 
-    public abstract serialize(): { [p: string]: any };
+    public serialize(): { [p: string]: any } {
+        const result = {} as { [p: string]: any };
+
+        if (this.content !== undefined) {
+            result.content = this.content;
+        }
+
+        if (this.deprecated !== undefined) {
+            result.deprecated = this.deprecated;
+        }
+
+        if (this.description !== undefined) {
+            result.description = this.description;
+        }
+
+        if (this.example !== undefined) {
+            result.example = this.example;
+        }
+
+        if (this.examples !== undefined) {
+            result.examples = this.examples;
+        }
+
+        if (this.in !== undefined) {
+            result.in = this.in;
+        }
+
+        if (this.name !== undefined) {
+            result.name = this.name;
+        }
+
+        if (this.required !== undefined) {
+            result.required = this.required;
+        }
+
+        if (this.schema !== undefined) {
+            result.schema = this.schema;
+        }
+
+        return result;
+    }
 }

@@ -82,6 +82,36 @@ export class Header implements HeaderInterface, SerializableInterface, SafeEdita
     }
 
     public serialize(): { [p: string]: any } {
-        return this;
+        const result = {} as { [p: string]: any };
+
+        if (this.content !== undefined) {
+            result.content = this.content;
+        }
+
+        if (this.deprecated !== undefined) {
+            result.deprecated = this.deprecated;
+        }
+
+        if (this.description !== undefined) {
+            result.description = this.description;
+        }
+
+        if (this.example !== undefined) {
+            result.example = this.example;
+        }
+
+        if (this.examples !== undefined) {
+            result.examples = this.examples;
+        }
+
+        if (this.required !== undefined) {
+            result.required = this.required;
+        }
+
+        if (this.schema !== undefined) {
+            result.schema = this.schema;
+        }
+
+        return result;
     }
 }

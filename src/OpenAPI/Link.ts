@@ -72,6 +72,32 @@ export class Link implements LinkInterface, SerializableInterface, SafeEditableI
     }
 
     public serialize(): { [p: string]: any } {
-        return this;
+        const result = {} as { [p: string]: any };
+
+        if (this.description !== undefined) {
+            result.description = this.description;
+        }
+
+        if (this.operationId !== undefined) {
+            result.operationId = this.operationId;
+        }
+
+        if (this.operationRef !== undefined) {
+            result.operationRef = this.operationRef;
+        }
+
+        if (this.parameters !== undefined) {
+            result.parameters = this.parameters;
+        }
+
+        if (this.requestBody !== undefined) {
+            result.requestBody = this.requestBody;
+        }
+
+        if (this.server !== undefined) {
+            result.server = this.server;
+        }
+
+        return result;
     }
 }

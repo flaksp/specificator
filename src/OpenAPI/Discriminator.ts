@@ -41,6 +41,16 @@ export class Discriminator implements DiscriminatorInterface, SerializableInterf
     }
 
     public serialize(): { [p: string]: any } {
-        return this;
+        const result = {} as { [p: string]: any };
+
+        if (this.mapping !== undefined) {
+            result.mapping = this.mapping;
+        }
+
+        if (this.propertyName !== undefined) {
+            result.propertyName = this.propertyName;
+        }
+
+        return result;
     }
 }

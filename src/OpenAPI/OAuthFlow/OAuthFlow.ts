@@ -38,5 +38,17 @@ export abstract class OAuthFlow implements OAuthFlowInterface, SerializableInter
         return copy;
     }
 
-    public abstract serialize(): { [p: string]: any };
+    public serialize(): { [p: string]: any } {
+        const result = {} as { [p: string]: any };
+
+        if (this.refreshUrl !== undefined) {
+            result.refreshUrl = this.refreshUrl;
+        }
+
+        if (this.scopes !== undefined) {
+            result.scopes = this.scopes;
+        }
+
+        return result;
+    }
 }

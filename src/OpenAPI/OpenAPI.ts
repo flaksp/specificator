@@ -87,6 +87,40 @@ export class OpenAPI implements OpenAPIInterface, SerializableInterface, SafeEdi
     }
 
     public serialize(): { [p: string]: any } {
-        return this;
+        const result = {} as { [p: string]: any };
+
+        if (this.components !== undefined) {
+            result.components = this.components;
+        }
+
+        if (this.externalDocs !== undefined) {
+            result.externalDocs = this.externalDocs;
+        }
+
+        if (this.info !== undefined) {
+            result.info = this.info;
+        }
+
+        if (this.openapi !== undefined) {
+            result.openapi = this.openapi;
+        }
+
+        if (this.paths !== undefined) {
+            result.paths = this.paths;
+        }
+
+        if (this.security !== undefined) {
+            result.security = this.security;
+        }
+
+        if (this.servers !== undefined) {
+            result.servers = this.servers;
+        }
+
+        if (this.tags !== undefined) {
+            result.tags = this.tags;
+        }
+
+        return result;
     }
 }

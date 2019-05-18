@@ -57,6 +57,24 @@ export class MediaType implements MediaTypeInterface, SerializableInterface, Saf
     }
 
     public serialize(): { [p: string]: any } {
-        return this;
+        const result = {} as { [p: string]: any };
+
+        if (this.encoding !== undefined) {
+            result.encoding = this.encoding;
+        }
+
+        if (this.example !== undefined) {
+            result.example = this.example;
+        }
+
+        if (this.examples !== undefined) {
+            result.examples = this.examples;
+        }
+
+        if (this.schema !== undefined) {
+            result.schema = this.schema;
+        }
+
+        return result;
     }
 }

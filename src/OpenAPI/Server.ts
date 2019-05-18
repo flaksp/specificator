@@ -47,6 +47,20 @@ export class Server implements ServerInterface, SerializableInterface, SafeEdita
     }
 
     public serialize(): { [p: string]: any } {
-        return this;
+        const result = {} as { [p: string]: any };
+
+        if (this.description !== undefined) {
+            result.description = this.description;
+        }
+
+        if (this.url !== undefined) {
+            result.url = this.url;
+        }
+
+        if (this.variables !== undefined) {
+            result.variables = this.variables;
+        }
+
+        return result;
     }
 }

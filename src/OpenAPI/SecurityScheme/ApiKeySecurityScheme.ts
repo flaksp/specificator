@@ -34,6 +34,16 @@ export class ApiKeySecurityScheme extends SecurityScheme implements ApiKeySecuri
     public readonly type: string = "apiKey";
 
     public serialize(): { [p: string]: any } {
-        return this;
+        const result = super.serialize();
+
+        if (this.in !== undefined) {
+            result.in = this.in;
+        }
+
+        if (this.name !== undefined) {
+            result.name = this.name;
+        }
+
+        return result;
     }
 }

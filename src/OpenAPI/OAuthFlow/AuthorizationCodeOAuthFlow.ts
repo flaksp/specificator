@@ -29,6 +29,16 @@ export class AuthorizationCodeOAuthFlow extends OAuthFlow implements Authorizati
     public tokenUrl: string;
 
     public serialize(): { [p: string]: any } {
-        return this;
+        const result = super.serialize();
+
+        if (this.authorizationUrl !== undefined) {
+            result.authorizationUrl = this.authorizationUrl;
+        }
+
+        if (this.tokenUrl !== undefined) {
+            result.tokenUrl = this.tokenUrl;
+        }
+
+        return result;
     }
 }

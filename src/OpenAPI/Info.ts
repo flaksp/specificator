@@ -69,6 +69,32 @@ export class Info implements InfoInterface, SerializableInterface, SafeEditableI
     }
 
     public serialize(): { [p: string]: any } {
-        return this;
+        const result = {} as { [p: string]: any };
+
+        if (this.contact !== undefined) {
+            result.contact = this.contact;
+        }
+
+        if (this.description !== undefined) {
+            result.description = this.description;
+        }
+
+        if (this.license !== undefined) {
+            result.license = this.license;
+        }
+
+        if (this.termsOfService !== undefined) {
+            result.termsOfService = this.termsOfService;
+        }
+
+        if (this.title !== undefined) {
+            result.title = this.title;
+        }
+
+        if (this.version !== undefined) {
+            result.version = this.version;
+        }
+
+        return result;
     }
 }

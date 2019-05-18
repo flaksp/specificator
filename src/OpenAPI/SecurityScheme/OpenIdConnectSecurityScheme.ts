@@ -27,6 +27,12 @@ export class OpenIdConnectSecurityScheme extends SecurityScheme implements OpenI
     public readonly type: string = "openIdConnect";
 
     public serialize(): { [p: string]: any } {
-        return this;
+        const result = super.serialize();
+
+        if (this.openIdConnectUrl !== undefined) {
+            result.openIdConnectUrl = this.openIdConnectUrl;
+        }
+
+        return result;
     }
 }

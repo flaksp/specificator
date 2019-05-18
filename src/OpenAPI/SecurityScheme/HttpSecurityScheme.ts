@@ -34,6 +34,16 @@ export class HttpSecurityScheme extends SecurityScheme implements HttpSecuritySc
     public readonly type: string = "http";
 
     public serialize(): { [p: string]: any } {
-        return this;
+        const result = super.serialize();
+
+        if (this.bearerFormat !== undefined) {
+            result.bearerFormat = this.bearerFormat;
+        }
+
+        if (this.scheme !== undefined) {
+            result.scheme = this.scheme;
+        }
+
+        return result;
     }
 }

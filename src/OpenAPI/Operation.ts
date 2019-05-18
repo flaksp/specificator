@@ -117,6 +117,56 @@ export class Operation implements OperationInterface, SerializableInterface, Saf
     }
 
     public serialize(): { [p: string]: any } {
-        return this;
+        const result = {} as { [p: string]: any };
+
+        if (this.callbacks !== undefined) {
+            result.callbacks = this.callbacks;
+        }
+
+        if (this.deprecated !== undefined) {
+            result.deprecated = this.deprecated;
+        }
+
+        if (this.description !== undefined) {
+            result.description = this.description;
+        }
+
+        if (this.externalDocs !== undefined) {
+            result.externalDocs = this.externalDocs;
+        }
+
+        if (this.operationId !== undefined) {
+            result.operationId = this.operationId;
+        }
+
+        if (this.parameters !== undefined) {
+            result.parameters = this.parameters;
+        }
+
+        if (this.requestBody !== undefined) {
+            result.requestBody = this.requestBody;
+        }
+
+        if (this.responses !== undefined) {
+            result.responses = this.responses;
+        }
+
+        if (this.security !== undefined) {
+            result.security = this.security;
+        }
+
+        if (this.servers !== undefined) {
+            result.servers = this.servers;
+        }
+
+        if (this.summary !== undefined) {
+            result.summary = this.summary;
+        }
+
+        if (this.tags !== undefined) {
+            result.tags = this.tags;
+        }
+
+        return result;
     }
 }

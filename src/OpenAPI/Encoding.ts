@@ -48,6 +48,20 @@ export class Encoding implements EncodingInterface, SerializableInterface, SafeE
     }
 
     public serialize(): { [p: string]: any } {
-        return this;
+        const result = {} as { [p: string]: any };
+
+        if (this.allowReserved !== undefined) {
+            result.allowReserved = this.allowReserved;
+        }
+
+        if (this.contentType !== undefined) {
+            result.contentType = this.contentType;
+        }
+
+        if (this.headers !== undefined) {
+            result.headers = this.headers;
+        }
+
+        return result;
     }
 }

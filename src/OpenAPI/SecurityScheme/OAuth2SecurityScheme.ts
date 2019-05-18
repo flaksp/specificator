@@ -28,6 +28,12 @@ export class OAuth2SecurityScheme extends SecurityScheme implements OAuth2Securi
     public readonly type: string = "oauth2";
 
     public serialize(): { [p: string]: any } {
-        return this;
+        const result = super.serialize();
+
+        if (this.flows !== undefined) {
+            result.flows = this.flows;
+        }
+
+        return result;
     }
 }

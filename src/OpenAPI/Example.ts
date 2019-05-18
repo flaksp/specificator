@@ -51,6 +51,24 @@ export class Example implements ExampleInterface, SerializableInterface, SafeEdi
     }
 
     public serialize(): { [p: string]: any } {
-        return this;
+        const result = {} as { [p: string]: any };
+
+        if (this.description !== undefined) {
+            result.description = this.description;
+        }
+
+        if (this.externalValue !== undefined) {
+            result.externalValue = this.externalValue;
+        }
+
+        if (this.summary !== undefined) {
+            result.summary = this.summary;
+        }
+
+        if (this.value !== undefined) {
+            result.value = this.value;
+        }
+
+        return result;
     }
 }

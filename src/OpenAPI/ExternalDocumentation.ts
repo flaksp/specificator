@@ -39,6 +39,16 @@ export class ExternalDocumentation implements ExternalDocumentationInterface, Se
     }
 
     public serialize(): { [p: string]: any } {
-        return this;
+        const result = {} as { [p: string]: any };
+
+        if (this.description !== undefined) {
+            result.description = this.description;
+        }
+
+        if (this.url !== undefined) {
+            result.url = this.url;
+        }
+
+        return result;
     }
 }

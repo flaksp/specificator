@@ -57,6 +57,24 @@ export class Response implements ResponseInterface, SerializableInterface, SafeE
     }
 
     public serialize(): { [p: string]: any } {
-        return this;
+        const result = {} as { [p: string]: any };
+
+        if (this.content !== undefined) {
+            result.content = this.content;
+        }
+
+        if (this.description !== undefined) {
+            result.description = this.description;
+        }
+
+        if (this.headers !== undefined) {
+            result.headers = this.headers;
+        }
+
+        if (this.links !== undefined) {
+            result.links = this.links;
+        }
+
+        return result;
     }
 }

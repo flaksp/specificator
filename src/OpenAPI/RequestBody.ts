@@ -47,6 +47,20 @@ export class RequestBody implements RequestBodyInterface, SerializableInterface,
     }
 
     public serialize(): { [p: string]: any } {
-        return this;
+        const result = {} as { [p: string]: any };
+
+        if (this.content !== undefined) {
+            result.content = this.content;
+        }
+
+        if (this.description !== undefined) {
+            result.description = this.description;
+        }
+
+        if (this.required !== undefined) {
+            result.required = this.required;
+        }
+
+        return result;
     }
 }

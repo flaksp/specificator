@@ -120,6 +120,60 @@ export class PathItem implements PathItemInterface, SerializableInterface, SafeE
     }
 
     public serialize(): { [p: string]: any } {
-        return this;
+        const result = {} as { [p: string]: any };
+
+        if (this.$ref !== undefined) {
+            result.$ref = this.$ref;
+        }
+
+        if (this.delete !== undefined) {
+            result.delete = this.delete;
+        }
+
+        if (this.description !== undefined) {
+            result.description = this.description;
+        }
+
+        if (this.get !== undefined) {
+            result.get = this.get;
+        }
+
+        if (this.head !== undefined) {
+            result.head = this.head;
+        }
+
+        if (this.options !== undefined) {
+            result.options = this.options;
+        }
+
+        if (this.parameters !== undefined) {
+            result.parameters = this.parameters;
+        }
+
+        if (this.patch !== undefined) {
+            result.patch = this.patch;
+        }
+
+        if (this.post !== undefined) {
+            result.post = this.post;
+        }
+
+        if (this.put !== undefined) {
+            result.put = this.put;
+        }
+
+        if (this.servers !== undefined) {
+            result.servers = this.servers;
+        }
+
+        if (this.summary !== undefined) {
+            result.summary = this.summary;
+        }
+
+        if (this.trace !== undefined) {
+            result.trace = this.trace;
+        }
+
+        return result;
     }
 }

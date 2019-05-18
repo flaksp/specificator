@@ -21,6 +21,8 @@ export class CookieParameter extends Parameter implements CookieParameterInterfa
     public readonly in: string = "cookie";
 
     public serialize(): { [p: string]: any } {
-        return this;
+        const result = super.serialize();
+
+        return result;
     }
 }
