@@ -162,6 +162,10 @@ export abstract class Schema implements SchemaInterface, SerializableInterface, 
             result.oneOf = this.oneOf;
         }
 
+        if (this.readOnly !== undefined) {
+            result.readOnly = this.readOnly;
+        }
+
         if (this.title !== undefined) {
             result.title = this.title;
         }
