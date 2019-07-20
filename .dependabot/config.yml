@@ -7,7 +7,3 @@ update_configs:
   - match:
       dependency_type: "all"
       update_type: "all"
-  allowed_updates:
-  - match:
-      update_type: "all"
-      dependency_type: "all"
