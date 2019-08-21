@@ -11,7 +11,7 @@
     "@types/node": "12.7.2",
     "markdownlint-cli": "0.18.0",
     "npm-publish-git-tag": "3.0.4",
-    "tslint": "5.18.0",
+    "tslint": "5.19.0",
     "typescript": "3.5.3"
   },
   "repository": {
