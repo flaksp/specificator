@@ -12,20 +12,7 @@ For installation instructions, usage docs and examples please visit [docs/README
 
 ## Related projects & packages
 
-To find community projects related to Specificator browse [`specificator`](https://www.npmjs.com/search?q=keywords:specificator) keyword in npm registry or [`specificator`](https://github.com/topics/specificator) topic in GitHub.
+To find projects related to Specificator browse at
 
-### Serializers
-
-Serializers should be used if you need to serialize OpenAPI objects to plain JavaScript objects.
-
-Official implementations:
-
-* [specificator-serializer](https://www.npmjs.com/package/specificator-serializer). Default serializer with simple logic.
-
-To find community implementations browse [`specificator-serializer`](https://www.npmjs.com/search?q=keywords:specificator-serializer) keyword in npm registry or [`specificator-serializer`](https://github.com/topics/specificator-serializer) topic in GitHub.
-
-### Specification extensions
-
-[Specification extensions](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#specificationExtensions) packages may provide additional OpenAPI objects related to specific vendors (such as [ReDoc](https://github.com/Rebilly/ReDoc)).
-
-To find community implementations browse [`specificator-specification-extension`](https://www.npmjs.com/search?q=keywords:specificator-specification-extension) keyword in npm registry or [`specificator-specification-extension`](https://github.com/topics/specificator-specification-extension) topic in GitHub.
+* npm Registry for [`specificator`](https://www.npmjs.com/search?q=keywords:specificator) keyword.
+* GitHub for [`specificator`](https://github.com/topics/specificator) topic.
