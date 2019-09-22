@@ -1,0 +1,55 @@
+name: Publish to package registry
+
+on:
+  release:
+    types:
+    - published
+
+jobs:
+  npm_registry:
+    name: npm Registry
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@master
+
+      - name: Install npm dependencies
+        uses: actions/npm@master
+        with:
+          args: install
+
+      - name: Build library
+        run: node_modules/.bin/tsc
+
+      - name: Set npm registry
+        run: npm config set registry https://registry.npmjs.org
+
+      - name: Publish package
+        run: node_modules/.bin/npm-deploy-git-tag --access public --token ${{ secrets.NPM_TOKEN }}
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  github_package_registry:
+    name: GitHub Package Registry
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@master
+
+      - name: Install npm dependencies
+        uses: actions/npm@master
+        with:
+          args: install
+
+      - name: Build library
+        run: node_modules/.bin/tsc
+
+      - name: Set npm registry
+        run: npm config set registry https://npm.pkg.github.com
+
+      - name: Publish package
+        run: node_modules/.bin/npm-deploy-git-tag --access public --token ${{ secrets.GPR_TOKEN }}
+        env:
+          NPM_TOKEN: ${{ secrets.GPR_TOKEN }}

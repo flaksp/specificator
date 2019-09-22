@@ -3,7 +3,7 @@
 ## Installation
 
 ```console
-npm install specificator --save-dev
+npm install @neluzhin/specificator --save-dev
 ```
 
 ## Quick start

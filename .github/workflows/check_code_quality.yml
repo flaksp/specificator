@@ -1,0 +1,23 @@
+name: Quality assurance
+
+on: push
+
+jobs:
+  npm:
+    name: npm
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@master
+
+      - name: Install npm dependencies
+        uses: actions/npm@master
+        with:
+          args: install
+
+      - name: Lint with markdownlint
+        run: node_modules/.bin/markdownlint *.md
+
+      - name: Lint with tslint
+        run: node_modules/.bin/tslint --project .
