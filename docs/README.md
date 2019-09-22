@@ -2,9 +2,13 @@
 
 ## Installation
 
+Install from [npm Registry](https://www.npmjs.com/package/@neluzhin/specificator):
+
 ```console
 npm install @neluzhin/specificator --save-dev
 ```
+
+The package is also available in [GitHub Package Registry](https://github.com/neluzhin/specificator/packages).
 
 ## Quick start
 
