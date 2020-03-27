@@ -9,7 +9,7 @@
   },
   "devDependencies": {
     "@hutson/npm-deploy-git-tag": "^5.0.3",
-    "@types/node": "13.9.4",
+    "@types/node": "13.9.5",
     "markdownlint-cli": "0.22.0",
     "tslint": "5.20.1",
     "typescript": "3.8.3"
