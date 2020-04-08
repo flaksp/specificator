@@ -2,13 +2,13 @@
 
 ## Installation
 
-Install from [npm Registry](https://www.npmjs.com/package/@neluzhin/specificator):
+Install from [npm Registry](https://www.npmjs.com/package/@flaksp/specificator):
 
 ```console
-npm install @neluzhin/specificator --save-dev
+npm install @flaksp/specificator --save-dev
 ```
 
-The package is also available in [GitHub Package Registry](https://github.com/neluzhin/specificator/packages).
+The package is also available in [GitHub Package Registry](https://github.com/flaksp/specificator/packages).
 
 ## Quick start
 
@@ -22,7 +22,7 @@ Specificator classes mapped 1-to-1 to OpenAPI 3 specification. For example Speci
 
 To take all benefits from Specificator, please read all topics (you may read then in any order):
 
-* [Using serializer](https://github.com/neluzhin/specificator-serializer)
+* [Using serializer](https://github.com/flaksp/specificator-serializer)
 * [Custom OpenAPI objects](custom-openapi-objects.md) (also known as [specification extensions](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#specificationExtensions))
 * [Reusable schemas](reusable-schemas.md)
 * [Safe objects modifications](safe-objects-modifications.md)

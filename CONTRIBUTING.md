@@ -26,7 +26,7 @@ make cs-fixes
 
 ## OpenAPI 3 updates
 
-If there is new version of OpenAPI 3 and Specificator doesn't support it yet, please [open an issue](https://github.com/neluzhin/specificator/issues).
+If there is new version of OpenAPI 3 and Specificator doesn't support it yet, please [open an issue](https://github.com/flaksp/specificator/issues).
 
 ### Updating Specificator manually
 
@@ -77,4 +77,4 @@ This one is too long (maybe it's good idea to split this commit):
 
 ## Questions?
 
-If you have questions or ideas, feel free to [create an issue](https://github.com/neluzhin/specificator/issues).
+If you have questions or ideas, feel free to [create an issue](https://github.com/flaksp/specificator/issues).
