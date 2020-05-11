@@ -8,7 +8,7 @@
     "deepcopy": "^2.0.0"
   },
   "devDependencies": {
-    "@hutson/npm-deploy-git-tag": "^5.0.3",
+    "@hutson/npm-deploy-git-tag": "^6.0.0",
     "@types/node": "13.13.5",
     "markdownlint-cli": "0.23.0",
     "tslint": "5.20.1",
