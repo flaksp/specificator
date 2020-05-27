@@ -1,6 +1,6 @@
 # Specificator
 
-> **Achtung!** This library is in early development state so it's unstable. It works now, but there are no guarantees for API stability (it may change during development). We are testing this library inside our projects and adopting some features to make it feel better. Please wait for version 1.0 and don't use it inside real projects.
+*Specificator is deprecated in favor of [@kojidev/openapi-ts](https://github.com/kojidev/openapi-ts). Please do not use Specificator in your projects, it will not receive any updates anymore.*
 
 Specificator is a framework (you may call it collection of DTOs) designed to help you write [OpenAPI 3 documentation](https://github.com/OAI/OpenAPI-Specification/tree/master/versions) using TypeScript and its strict type system.
 
